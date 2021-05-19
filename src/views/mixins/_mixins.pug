@@ -1,0 +1,123 @@
+mixin moreBtn(href, text)
+  a.more-btn(href=href)
+    img(src="assets/images/icons/arrow-right.svg", alt="more")
+    span= text
+
+mixin beforeBtn(href, text)
+  a.before-btn(href=href)
+    img(src="assets/images/icons/arrow-right.svg", alt="more")
+    span= text
+
+mixin tabBtn(href, text, className)
+  a.tab-btn(href=href ? href : "#", class=className ? className : "", onclick="event.preventDefault()")
+    span= text
+
+mixin newsItem(date, title, moreUrl, tabs)
+  li.news__item
+    p.news__item-date= date
+    p.news__item-title= title
+    ul.news__item-themes
+      each tab in tabs
+        li.news__item-theme
+          +tabBtn(tab.url, tab.text, "disabled")
+    +moreBtn(moreUrl, "Подробнее")
+
+mixin pageTitle(title)
+  .page-title
+    .row.justify-content-center
+      .col-8.col-xl-4
+        h1= title
+
+mixin seeNext(url, title)
+  a.see-next(href=url data-aos="fade-up")
+    .see-next__content
+      .row
+        .col-8.col-lg-2
+          p.see-next__subtitle Смотрите дальше
+        .col-6.col-lg-5
+          h2.see-next__title= title
+      button.see-next__button
+        img(src="assets/images/icons/arrow-right.svg", alt="more")
+
+mixin agreeCheckbox(id)
+  input(type="checkbox", name="agree", id=id, required)
+  label(for=id)
+    | Согласен на обработку персональных данных в соответствии с #[a.link(href="#") политикой конфиденциальности]
+    p.error Остутствует согласие на обработку персональных данных
+
+mixin eventsSubscribe(is_detail)
+  .events__subscribe(data-aos="fade-up")
+    .events__subscribe-block
+      if !is_detail
+        .filter
+          .filter__tabs
+            each item, index in filters
+              if index == 0
+                +tabBtn(item.url, item.text, "active")
+              else
+                +tabBtn(item.url, item.text)
+          button.filter__discard
+            img.svg(src="assets/images/icons/discard.svg", alt="discard")
+            span Сбросить
+      else
+        +beforeBtn("/events", "Все события")
+      .subscribe
+        p.subscribe-title.active Подписаться на ССП–Консалт
+        p.subscribe-title Подписка успешно оформлена
+        .subscribe-email
+          input(type="email" name="email" placeholder="E-mail*")
+          p.error Поле не заполнено
+        +agreeCheckbox("subscribe-agree")
+        .subscribe-btn.active
+          +moreBtn("#", "Подписаться")
+        .subscribe-btn
+          +moreBtn("#", "Подписаться еще")
+      if is_detail
+        .share
+          p.share__title Поделиться новостью
+          ul.share__links
+            li.share__links-item
+              a(href="#") Facebook
+            li.share__links-item
+              a(href="#") Вконтакте
+
+mixin feedbackForm(title, agree_id)
+  .feedback(data-aos="fade-up")
+    h2.feedback__title.active=title
+    h2.feedback__title Мы приняли ваше сообщение и ответим вам в ближайшее время.
+    form.feedback__form
+      .feedback-field.feedback-name
+        input(type="name", name="name", placeholder="Имя*", required)
+        p.error Поле не заполнено
+      .feedback-field.feedback-email
+        input(type="email", name="email", placeholder="E-mail")
+        p.error Поле не заполнено
+      .feedback-field.feedback-phone
+        input(type="phone", name="phone", placeholder="Телефон*", required)
+        p.error Поле не заполнено
+      textarea(name="message", placeholder="Сообщение")
+    .feedback__submit
+      .submit-btn.active
+        +moreBtn("#", "Отправить")
+      .submit-btn
+        +moreBtn("#", "Отправить еще")
+      .feedback-agree
+        +agreeCheckbox(agree_id)
+
+mixin caseItem(caseItem, isOtherCases)
+  li.case-item(class = isOtherCases ? "small" : "" data-aos="fade-up")
+    .case-item__content
+      a(href=caseItem.url).case-item__link
+      .case-item__content-title-block
+        h4.case-item__title= caseItem.title
+        +tabBtn("#", caseItem.category, "disabled")
+      .case-item__content-img-block
+        .case-item__img
+          span
+            img(src=caseItem.img.url, alt=caseItem.img.alt)
+      .case-item__practices
+        p.case-item__practices-title Практики
+        ul.case-item__practices-block
+          each practice in caseItem.practices
+            li.case-item__practices-item
+              a.link(href=practice.url)= practice.name

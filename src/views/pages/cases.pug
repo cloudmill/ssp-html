@@ -1,0 +1,170 @@
+extends ../layouts/master.pug
+
+block header
+  .cases-page
+    include ../partials/_header.pug
+
+block content
+  -
+    const cases_filters = [
+      {
+        url: "#",
+        text: "споры с государственными органами"
+      },
+      {
+        url: "#",
+        text: "недвижимость и строительство"
+      },
+      {
+        url: "#",
+        text: "защита прав частного клиента"
+      },
+      {
+        url: "#",
+        text: "недвижимость и строительство"
+      },
+      {
+        url: "#",
+        text: "защита прав частного клиента"
+      },
+    ]
+
+    const cases = [
+      {
+        url: "case",
+        title: "Защита интересов Европейского Университета",
+        category: "защита прав частного клиента",
+        img: {
+          url: "assets/images/cases/university.png",
+          alt: "Европейский университет в Санкт-Петербурге"
+        },
+        practices: [
+          {
+            url: "#",
+            name: "Банкротство и антикризисный консалтинг"
+          },
+          {
+            url: "#",
+            name: "Страховое право"
+          },
+          {
+            url: "#",
+            name: "Корпоративное право и M&A"
+          },
+        ]
+      },
+      {
+        url: "case",
+        title: "Спор с «ЛенСпецСМУ»",
+        category: "споры с государственными органами",
+        img: {
+          url: "assets/images/cases/etalon.png",
+          alt: "Эталон ЛенСпецСМУ"
+        },
+        practices: [
+          {
+            url: "#",
+            name: "Недвижимость и строительство"
+          },
+          {
+            url: "#",
+            name: "Разрешение споров и арбитраж"
+          },
+        ]
+      },
+      {
+        url: "case",
+        title: "Защита интересов Европейского Университета",
+        category: "защита прав частного клиента",
+        img: {
+          url: "assets/images/cases/university.png",
+          alt: "Европейский университет в Санкт-Петербурге"
+        },
+        practices: [
+          {
+            url: "#",
+            name: "Банкротство и антикризисный консалтинг"
+          },
+          {
+            url: "#",
+            name: "Страховое право"
+          },
+          {
+            url: "#",
+            name: "Корпоративное право и M&A"
+          },
+        ]
+      },
+      {
+        url: "case",
+        title: "Спор с «ЛенСпецСМУ»",
+        category: "споры с государственными органами",
+        img: {
+          url: "assets/images/cases/etalon.png",
+          alt: "Эталон ЛенСпецСМУ"
+        },
+        practices: [
+          {
+            url: "#",
+            name: "Недвижимость и строительство"
+          },
+          {
+            url: "#",
+            name: "Разрешение споров и арбитраж"
+          },
+        ]
+      },
+    ]
+
+  main.main.cases.container-fluid.px-0
+    +pageTitle("Кейсы")
+
+    .cases__content
+      .row.justify-content-end
+        .col-8.col-xl-6
+          .cases__filter(data-aos="fade-up")
+            .cases__filter-trigger
+              p.cases__filter-trigger-title Категории
+              .cases__filter-trigger-img
+                img.svg(src="assets/images/practices/tab-arrow.svg" alt="arrow")
+            .cases__filter-block
+              .cases__filter-tabs
+                each item, index in cases_filters
+                  if index == 0
+                    +tabBtn(item.url, item.text, "active")
+                  else
+                    +tabBtn(item.url, item.text)
+              button.cases__filter-discard
+                img.svg(src="assets/images/icons/discard.svg", alt="discard")
+                span Сбросить
+      .cases__last
+        .row
+          .col-8.col-xl-2
+            h3.cases__last-title(data-aos="fade-up") Последний кейс
+          .col-8.col-xl-6
+            .cases__last-block.last-case(data-aos="fade-up" data-aos-delay="200")
+              a(href="case").cases__last-link
+              h4.last-case__title Защита интересов Европейского Университета
+              +tabBtn("#", "споры с государственными органами", "disabled")
+              .last-case__img
+                span
+                  img(src="assets/images/cases/university.png", alt="Европейский университет в Санкт-Петербурге")
+              .last-case__practices
+                p.last-case__practices-title Практики
+                ul.last-case__practices-block 
+                  li.last-case__practices-item
+                    a.link(href="#") Банкротство и антикризисный консалтинг
+                  li.last-case__practices-item
+                    a.link(href="#") Страховое право
+                  li.last-case__practices-item
+                    a.link(href="#") Корпоративное право и M&A
+      
+      ul.cases__all
+        each caseItem in cases
+          +caseItem(caseItem)
+
+
+    +seeNext("about-company", "О компании")
+
+block footer
+  include ../partials/_footer.pug

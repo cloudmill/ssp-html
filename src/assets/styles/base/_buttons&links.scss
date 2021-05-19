@@ -1,0 +1,66 @@
+.link {
+  width: fit-content;
+  position: relative;
+  @include transition();
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    height: 1px;
+    width: 0;
+    background: $color-7;
+    @include transition();
+  }
+
+  &:hover::before {
+    width: 100%;
+    left: 0;
+    @include transition();
+  }
+}
+
+.tab-btn {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  background: $color-7;
+  border: 1px solid $color-1;
+  color: $color-1;
+  border-radius: 4px;
+  @include transition();
+
+  span {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 140%;
+    font-family: $additional-font-family;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+
+  &:hover {
+    border-color: $color-6;
+  }
+
+  &.active {
+    background: $color-6;
+    border-color: $color-6;
+    color: $color-7;
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: auto;
+
+    &:hover {
+      border-color: $color-1;
+    }
+  }
+}

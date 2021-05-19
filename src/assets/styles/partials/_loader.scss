@@ -1,0 +1,70 @@
+.loader {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: $color-3;
+  transform: translateY(0);
+  @include transition($property: transform);
+
+  &.hidden {
+    transform: translateY(-200%);
+    @include transition($property: transform);
+  }
+
+  &-title {
+    font-size: 40px;
+    line-height: 100%;
+    color: $color-1;
+    font-family: $additional-font-family;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
+
+    span {
+      font-family: $main-font-family;
+    }
+  }
+
+  &-progress {
+    position: absolute;
+    top: calc(50% - 610px / 2);
+    left: calc(50% - 610px / 2);
+    width: 610px;
+    height: 610px;
+
+    @media (max-width: 768px) {
+      width: 290px;
+      height: 290px;
+      top: calc(50% - 290px / 2);
+      left: calc(50% - 290px / 2);
+    }
+
+    &__circle {
+      display: none;
+      transform-origin: center;
+      transform: rotate(-90deg);
+      stroke: $color-1;
+    }
+
+    &.loader-progress_mobile {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      &.loader-progress_desktop {
+        display: none;
+      }
+
+      &.loader-progress_mobile {
+        display: block;
+      }
+    }
+  }
+}

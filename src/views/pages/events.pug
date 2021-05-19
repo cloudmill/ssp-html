@@ -1,0 +1,106 @@
+extends ../layouts/master.pug
+
+block header
+  .events-page
+    include ../partials/_header.pug
+
+block content
+  -
+    const events = [
+      {
+        date: '20 декабря 2020',
+        title: 'Дарья Титкова в «Диалоге с бизнесом», при поддержке ЛО ТПП',
+        moreUrl: '#',
+        tabs: [
+          {
+            url: "#",
+            text: "суды"
+          },
+          {
+            url: "#",
+            text: "адвокаты"
+          },
+          {
+            url: "#",
+            text: "арбитраж"
+          }
+        ],
+      },
+      {
+        date: '20 декабря 2020',
+        title: 'ССП–Консалт ищет пострадавших от бездействий авиакомпаний',
+        moreUrl: 'event',
+        tabs: [
+          {
+            url: "#",
+            text: "суды"
+          }
+        ],
+      }
+    ]
+
+    const filters = [
+      {
+        url: "#",
+        text: "суды"
+      },
+      {
+        url: "#",
+        text: "мы в СМИ"
+      },
+      {
+        url: "#",
+        text: "новости"
+      },
+      {
+        url: "#",
+        text: "статьи"
+      },
+      {
+        url: "#",
+        text: "ищу юриста"
+      },
+      {
+        url: "#",
+        text: "вопрос юристу"
+      },
+      {
+        url: "#",
+        text: "юридическая компания"
+      },
+    ]
+
+  main.main.events.container-fluid.px-0
+    +pageTitle("События")
+
+    .events__content
+      .row.justify-content-xl-between.flex-xl-nowrap
+        .col-8.col-xl-2
+          .left-block
+            +eventsSubscribe()
+        .col-8.col-xl-6
+          ul.events__block-list
+            li.events__block-item(data-aos="fade-up")
+              ul.events__items
+                each event in events
+                  +newsItem(event.date, event.title, event.moreUrl, event.tabs)
+            li.events__block-item(data-aos="fade-up")
+              ul.events__items
+                each event in events
+                  +newsItem(event.date, event.title, event.moreUrl, event.tabs)
+            li.events__block-item(data-aos="fade-up")
+              ul.events__items
+                each event in events
+                  +newsItem(event.date, event.title, event.moreUrl, event.tabs)
+          .subscribe
+            p.subscribe-title.active Подписаться на ССП–Консалт
+            .subscribe-email
+              input(type="email" name="email" placeholder="E-mail*")
+            +agreeCheckbox("subscribe-agree-mob")
+            .subscribe-btn.active
+              +moreBtn("#", "Подписаться")
+
+    +seeNext("contacts", "Контакты")
+
+block footer
+  include ../partials/_footer.pug

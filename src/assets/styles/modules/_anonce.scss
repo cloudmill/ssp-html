@@ -1,0 +1,293 @@
+.anonce {
+  position: relative;
+  z-index: 20;
+  background: $color-6;
+  color: $color-7;
+  font-family: $main-font-family;
+  @include transition();
+
+  .zoom-hide-item {
+    transform: scale(1.1);
+    opacity: 0;
+
+    &.show {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  &__slider {
+    position: static;
+    overflow: visible;
+
+    &-wrapper {
+      position: static;
+      transition-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+    }
+
+    &-slide {
+      position: relative;
+    }
+  }
+
+  &__content {
+    max-width: 1920px;
+    padding: 0 40px;
+    margin: 0 auto;
+
+    @media (max-width: 1200px) {
+      padding: 0 20px;
+    }
+  }
+
+  &__trigger {
+    height: 80px;
+    width: 100%;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      height: fit-content;
+      padding-bottom: 20px;
+      padding-top: 8px;
+    }
+
+    &:hover {
+      .anonce__trigger-title {
+        .line::before {
+          width: 0;
+        }
+      }
+
+      .anonce__trigger-btn {
+        background: $color-7;
+        border: 1px solid rgba(255, 255, 255, 1);
+
+        .more {
+          .svg path {
+            fill: $color-6;
+          }
+        }
+      }
+    }
+
+    .row {
+      height: 100%;
+
+      @media (max-width: 992px) {
+        > div {
+          width: fit-content;
+          flex: 0 0 auto;
+          margin: 0;
+          padding: 0;
+
+          &:nth-child(2) {
+            width: calc(100% - 40px - 25px);
+            padding-left: 10px;
+
+            @media (max-width: 768px) {
+              width: calc(100% - 34px - 25px);
+            }
+          }
+
+          &:last-child {
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+
+    &-title {
+      font-size: 14px;
+      line-height: 140%;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+
+      .line {
+        position: relative;
+        width: 100%;
+        height: 1px;
+        background: transparent;
+        margin-left: 20px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          background: $color-7;
+          @include transition();
+        }
+      }
+    }
+
+    &-preview {
+      font-size: 20px;
+      line-height: 140%;
+
+      @media (max-width: 768px) {
+        font-size: 12px;
+      }
+    }
+
+    &-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: rotate(90deg);
+      @include transition();
+
+      @media (max-width: 992px) {
+        margin-left: 15px;
+      }
+
+      @media (max-width: 768px) {
+        width: 34px;
+        height: 34px;
+      }
+
+      .more {
+        display: block;
+
+        .svg {
+          padding-left: 2px;
+
+          path {
+            @include transition();
+          }
+        }
+      }
+
+      .close {
+        display: none;
+      }
+    }
+  }
+
+  &__block {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: $color-8;
+    padding-bottom: 80px;
+
+    @media (max-width: 768px) {
+      padding-bottom: 30px;
+    }
+
+    &-text {
+      @include transition($delay: 0.1s);
+    }
+
+    &-content {
+      max-width: 1920px;
+      padding: 0 40px;
+      margin: 0 auto;
+
+      @media (max-width: 1200px) {
+        padding: 0 20px;
+      }
+    }
+
+    &-navigation {
+      display: flex;
+      @include transition($delay: 0.25s);
+
+      @media (max-width: 768px) {
+        position: absolute;
+        right: 20px;
+        bottom: 30px;
+      }
+
+      .next-btn,
+      .prev-btn {
+        width: 55px;
+        height: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        @include transition();
+
+        @media (max-width: 768px) {
+          width: 40px;
+          height: 40px;
+        }
+
+        &:hover {
+          border: 1px solid $color-6;
+        }
+
+        .svg {
+          width: 35%;
+
+          path {
+            fill: $color-7;
+          }
+        }
+      }
+
+      .prev-btn {
+        margin-right: 10px;
+        transform: rotate(180deg);
+
+        @media (max-width: 768px) {
+          margin-right: 6px;
+        }
+      }
+    }
+
+    &-description {
+      font-size: 16px;
+      line-height: 160%;
+      opacity: 0.5;
+      margin-bottom: 40px;
+
+      @media (max-width: 768px) {
+        font-size: 12px;
+        margin-bottom: 30px;
+      }
+    }
+
+    .more-btn span {
+      color: $color-7;
+    }
+  }
+
+  &.active {
+    background: $color-8;
+
+    .anonce__trigger:hover {
+      .anonce__trigger-btn {
+        background: $color-6;
+        border-color: $color-6;
+      }
+    }
+
+    .anonce__trigger-btn {
+      .more {
+        display: none;
+      }
+
+      .close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .svg {
+          padding-bottom: 1px;
+        }
+      }
+    }
+  }
+}

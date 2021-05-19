@@ -1,0 +1,22 @@
+include ../mixins/_mixins.pug
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="shortcut icon", href="assets/favicon.svg")
+
+    title Сила Стабильного Партнерства
+  body
+    include ../partials/_loader.pug
+
+    .loaded-content(style="visibility: hidden;")
+      include ../components/_anonce.pug
+      .content
+        include ../components/_practices-modal.pug
+        block header
+        block content
+        block footer
+    block scripts

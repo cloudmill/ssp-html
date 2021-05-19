@@ -1,0 +1,460 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  width: 100%;
+  height: 120px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: $main-font-family;
+  color: $color-1;
+  background: transparent;
+  @include transition($duration: 0.9s, $property: transform);
+
+  @media (max-width: 1200px) {
+    height: 70px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: $color-7;
+    width: 100%;
+    height: 0;
+    @include transition($duration: 0.9s);
+  }
+
+  .link::after,
+  .practices-link::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 4px);
+    left: -18px;
+    width: 8px;
+    height: 8px;
+    display: none;
+    border-radius: 50%;
+    background: $color-6;
+  }
+
+  .link::before {
+    @include transition($duration: 0.9s);
+    background: $color-1;
+  }
+
+  &.active {
+    .mobile-menu {
+      transform: translateX(0);
+    }
+  }
+
+  &.scrolled,
+  &.active {
+    &.out {
+      transform: translateY(-100%);
+    }
+
+    &::before {
+      height: 100%;
+    }
+  }
+
+  &__content {
+    max-width: 1920px;
+    width: 100%;
+    height: 100%;
+    padding: 0 40px;
+    margin: 0 auto;
+
+    @media (max-width: 1200px) {
+      padding: 0 20px;
+    }
+
+    > .row {
+      height: 100%;
+    }
+
+    .header__logo {
+      max-width: 208px;
+      max-height: 46px;
+      min-width: 125px;
+      min-height: 28px;
+
+      @media (max-width: 1200px) {
+        width: 125px;
+        height: 28px;
+      }
+
+      a {
+        width: 100%;
+        height: 100%;
+
+        .logo__img {
+          width: 100%;
+          height: 100%;
+
+          path:nth-child(1),
+          path:nth-child(2) {
+            fill: $color-1;
+            @include transition($duration: 0.9s);
+          }
+        }
+      }
+    }
+
+    .practices {
+      font-size: 24px;
+
+      &__item {
+        margin-right: 70px;
+
+        &:last-child {
+          margin: 0;
+        }
+
+        .practices-link {
+          position: relative;
+          @include transition($duration: 0.9s);
+          display: flex;
+
+          .practices__item-dots {
+            margin-left: 20px;
+            height: inherit;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .dot {
+              width: 6px;
+              height: 6px;
+              background: $color-1;
+              border-radius: 50%;
+              @include transition();
+            }
+          }
+
+          &:hover {
+            .dot {
+              &:first-child {
+                transform: translateX(12px);
+              }
+
+              &:nth-child(2) {
+                width: 10px;
+                height: 10px;
+              }
+
+              &:last-child {
+                transform: translateX(-12px);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .menu {
+      &__item {
+        margin-left: 82px;
+        font-size: 16px;
+
+        @media (max-width: 1680px) {
+          margin-left: 57px;
+        }
+
+        @media (max-width: 1366px) {
+          margin-left: 50px;
+        }
+
+        &:first-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &.active {
+    .header__burger {
+      &_active {
+        display: none;
+      }
+
+      &_close {
+        display: flex;
+      }
+    }
+  }
+
+  &__burger {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+
+    &:hover {
+      .header__burger_active span::before {
+        width: 60%;
+      }
+    }
+
+    &_active {
+      display: block;
+      @include transition();
+
+      span {
+        position: relative;
+        display: block;
+        width: 30px;
+        height: 3px;
+        background: $color-1;
+        @include transition();
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: inherit;
+          right: 0;
+          bottom: calc(100% + 5px);
+          @include transition();
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: inherit;
+          left: 0;
+          top: calc(100% + 5px);
+        }
+      }
+    }
+
+    &_close {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: $color-6;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      @include transition();
+    }
+  }
+
+  .mobile-menu {
+    width: 100%;
+    position: sticky;
+    transform: translateX(100%);
+    z-index: 16;
+    color: $color-1;
+    background: $color-7;
+    @include transition($duration: 0.9s);
+
+    &__content {
+      padding: 21px 20px 40px;
+
+      .header__logo {
+        a {
+          .logo__img {
+            path:nth-child(1),
+            path:nth-child(2) {
+              fill: $color-1;
+            }
+          }
+        }
+      }
+
+      .practices {
+        font-size: 24px;
+        margin-bottom: 40px;
+
+        &__item {
+          margin-bottom: 20px;
+
+          &:last-child {
+            margin: 0;
+          }
+
+          a {
+            position: relative;
+            display: flex;
+            width: fit-content;
+
+            .practices__item-dots {
+              margin-left: 20px;
+              height: inherit;
+              width: 30px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+
+              .dot {
+                width: 6px;
+                height: 6px;
+                background: $color-1;
+                border-radius: 50%;
+                @include transition();
+              }
+            }
+
+            &:hover {
+              .dot {
+                &:first-child {
+                  transform: translateX(12px);
+                }
+
+                &:nth-child(2) {
+                  width: 10px;
+                  height: 10px;
+                }
+
+                &:last-child {
+                  transform: translateX(-12px);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .menu {
+        &__item {
+          font-size: 16px;
+          margin-bottom: 20px;
+
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.index-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  .header {
+    position: sticky;
+    color: $color-7;
+
+    .link::before {
+      background: $color-7;
+
+      @media (max-width: 1200px) {
+        background: $color-1;
+      }
+    }
+
+    &__burger {
+      &_active {
+        span {
+          background: $color-7;
+        }
+      }
+    }
+
+    &__content {
+      .header__logo {
+        a {
+          .logo__img {
+            path:nth-child(1),
+            path:nth-child(2) {
+              fill: $color-7;
+            }
+          }
+        }
+      }
+      .practices {
+        &__item {
+          a {
+            .practices__item-dots {
+              .dot {
+                background: $color-7;
+
+                @media (max-width: 1199px) {
+                  background: $color-1;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.scrolled,
+    &.active {
+      color: $color-1;
+
+      .link::before {
+        background: $color-1;
+      }
+
+      .header__content {
+        .header__logo {
+          a {
+            .logo__img {
+              path:nth-child(1),
+              path:nth-child(2) {
+                fill: $color-1;
+              }
+            }
+          }
+        }
+        .practices {
+          &__item {
+            a {
+              .practices__item-dots {
+                .dot {
+                  background: $color-1;
+                }
+              }
+            }
+          }
+        }
+        .header__burger {
+          &_active span {
+            background: $color-1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.practices-page .header .practices-link::after {
+  display: block;
+}
+
+.cases-page .header .link.cases::after {
+  display: block;
+}
+
+.about-company-page .header .link.about-company::after {
+  display: block;
+}
+
+.command-page .header .link.command-link::after {
+  display: block;
+}
+
+.events-page .header .link.events::after {
+  display: block;
+}
+
+.contacts-page .header .link.contacts::after {
+  display: block;
+}

@@ -1,0 +1,151 @@
+$footer-bg-img: url("../../assets/images/icons/footer-bg.svg");
+
+.footer {
+  width: 100%;
+  background-color: $color-8;
+  background-image: $footer-bg-img;
+  background-position: bottom;
+  background-size: cover;
+  padding: 160px 0 80px;
+
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
+
+  &__content {
+    max-width: 1920px;
+    padding: 0 40px;
+    margin: 0 auto;
+    position: relative;
+    font-family: $main-font-family;
+    color: $color-7;
+
+    @media (max-width: 1200px) {
+      padding: 0 20px;
+    }
+
+    .footer__title {
+      font-size: 90px;
+      color: $color-6;
+      font-family: $additional-font-family;
+
+      @media (max-width: 1200px) {
+        font-size: 40px;
+      }
+
+      @media (max-width: 768px) {
+        margin-bottom: 40px;
+      }
+
+      span {
+        font-family: $main-font-family;
+      }
+    }
+
+    .footer__links {
+      .link {
+        font-size: 20px;
+        line-height: 140%;
+
+        @media (max-width: 1200px) {
+          font-size: 16px;
+        }
+      }
+
+      .link:hover {
+        color: $color-6;
+      }
+
+      .link::before {
+        background: $color-6;
+      }
+
+      &-item {
+        margin-bottom: 20px;
+
+        @media (max-width: 1200px) {
+          margin-bottom: 10px;
+        }
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+
+      .footer__network {
+        margin-bottom: 10px;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+
+      .footer__contacts {
+        margin-top: 132px;
+        font-size: 55px;
+        line-height: 100%;
+        font-family: $additional-font-family;
+
+        @media (max-width: 1200px) {
+          font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+          margin-top: 40px;
+          margin-bottom: 40px;
+        }
+
+        a {
+          width: fit-content;
+          @include transition();
+
+          &:hover {
+            color: $color-6;
+          }
+        }
+
+        .phone {
+          margin-bottom: 20px;
+
+          @media (max-width: 768px) {
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+
+    .footer__bottom {
+      margin-top: 70px;
+      font-size: 14px;
+      line-height: 140%;
+
+      @media (max-width: 1200px) {
+        font-size: 12px;
+      }
+
+      @media (max-width: 768px) {
+        margin-top: 40px;
+      }
+
+      .author {
+        display: inline-block;
+        padding-right: 45px;
+
+        @media (max-width: 768px) {
+          margin-top: 10px;
+          padding-right: 0;
+        }
+
+        a {
+          color: $color-6;
+          font-weight: normal;
+          @include transition();
+
+          &:hover {
+            color: $color-5;
+          }
+        }
+      }
+    }
+  }
+}
