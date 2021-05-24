@@ -23,15 +23,4 @@ if ($(".main.cases").width()) {
   } else {
     $(filter).find(".cases__filter-block").slideDown(600);
   }
-  
-  $(filterTabs).on("click", (e) => {
-    e.preventDefault();
-    $(e.delegateTarget).toggleClass("active");
-  });
-
-  $(filterDiscardBtn).on("click", () => {
-    $(filterTabs).each(function (index, element) {
-      $(element).removeClass("active");
-    });
-  });
 }

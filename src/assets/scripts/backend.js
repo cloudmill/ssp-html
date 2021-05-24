@@ -1,4 +1,8 @@
+events();
+cases();
+
 function events() {
+  console.log('events');
   $("[data-type=js-event-filter-tag]").on("click", function (e) {
     e.preventDefault();
     $(this).toggleClass("active");
@@ -42,6 +46,7 @@ function events() {
 }
 
 function cases() {
+  console.log('cases');
   $("[data-type=js-case-filter-tag]").on("click", function (e) {
     e.preventDefault();
     $(this).toggleClass("active");
