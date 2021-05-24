@@ -13,17 +13,6 @@ if ($(".main.events").width() || $(".main.event").width()) {
       ".subscribe input[name=email] + .error"
     );
 
-  $(filters).on("click", (e) => {
-    e.preventDefault();
-    $(e.delegateTarget).toggleClass("active");
-  });
-
-  $(filterDiscardBtn).on("click", () => {
-    $(filters).each(function (index, element) {
-      $(element).removeClass("active");
-    });
-  });
-
   $(subscribeBtn).on("click", (e) => {
     e.preventDefault();
 

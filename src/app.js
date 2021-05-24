@@ -22,6 +22,7 @@ $(() => {
   require("Scripts/anonce");
   require("Scripts/practices-modal");
   require("Scripts/gMapsAPI");
+  require("Scripts/backend");
 
   const loader = $(".loader"),
     progress = loader.find(".loader-progress"),
