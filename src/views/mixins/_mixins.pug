@@ -15,7 +15,7 @@ mixin tabBtn(href, text, className)
 mixin newsItem(date, title, moreUrl, tabs)
   li.news__item
     p.news__item-date= date
-    p.news__item-title= title
+    a(href="").news__item-title= title
     ul.news__item-themes
       each tab in tabs
         li.news__item-theme

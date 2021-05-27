@@ -26,4 +26,22 @@ if ($(".practices-modal").width()) {
       $(".header").removeClass("active");
     }, 1200);
   });
+
+  $(document).mouseup(function (e) {
+    if (
+      !practicesModal.is(e.target) &&
+      practicesModal.has(e.target).length === 0
+    ) {
+      if (practicesModal.hasClass("active")) {
+        $(zoomHideItem).each(function (index, item) {
+          $(item).removeClass("show");
+        });
+
+        setTimeout(() => {
+          practicesModal.removeClass("active");
+          $(".header").removeClass("active");
+        }, 1200);
+      }
+    }
+  });
 }
