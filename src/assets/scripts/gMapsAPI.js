@@ -2,10 +2,11 @@ import { Loader } from "@googlemaps/js-api-loader";
 
 if ($("#map").width()) {
   const loader = new Loader({
-    apiKey: "AIzaSyDH6vqQLGTGXjMIF7KEDy1-ijODaKbDxyQ",
+    apiKey: "AIzaSyBQYAk9soX0a_B8jAVlzC1Mm4wzeTsZY0w",
   });
   loader.load().then(() => {
     let map = new google.maps.Map(document.getElementById("map"), {
+
       center: { lat: 59.94700391527715, lng: 30.36313817538211 },
       zoom: 12,
       styles: [
@@ -126,17 +127,25 @@ if ($("#map").width()) {
       ],
     });
 
+    window.debMap = map;
+
+    let dataCoordinatesStr = $('[data-type=coordinates]').val(),
+      dataCoordinates = JSON.parse(`${dataCoordinatesStr}`);
+
     const addMarker = (coordinates) => {
       let marker = new google.maps.Marker({
         position: coordinates,
         map: map,
-        icon: "assets/images/icons/pin.svg",
+        icon: "/local/templates/main/assets/images/icons/pin.svg",
       });
     };
 
-    // Каменноостровский пр., 73–75, оф. 9
-    addMarker({ lat: 59.97585905027141, lng: 30.304834817801797 });
-    // ул. Чайковского, 50
-    addMarker({ lat: 59.94700391527715, lng: 30.36313817538211 });
+    let latLng = null;
+
+    for (let key in dataCoordinates) {
+      latLng = dataCoordinates[key].split(',');
+
+      addMarker({ lat: Number(latLng[0]), lng: Number(latLng[1]) });
+    }
   });
 }

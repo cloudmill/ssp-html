@@ -1,10 +1,14 @@
 import "parsleyjs";
 import mask from "inputmask";
 
-events();
-cases();
-validates();
-masks();
+$(function() {
+  events();
+  cases();
+  validates();
+  masks();
+  submitForm();
+});
+
 
 function events() {
   console.log("events");
@@ -111,3 +115,36 @@ function validates() {
 function masks() {
   Inputmask({ mask: "+7 (999) 999-9999" }).mask("[data-mask=phone]");
 }
+
+function submitForm() {
+  $(document).on('click', '[data-type=form-submit]', function (e) {
+    e.preventDefault();
+
+    let obj = $(this),
+      container = obj.parents('[data-type=feedback-form]'),
+      data = {},
+      formType = container.attr('data-title-type');
+
+    if (formType) {
+      data['UF_TYPE'] = formType;
+    };
+
+    container.find('input, textarea').each(function () {
+      data[$(this).attr('data-uf')] = $(this).val();
+    });
+
+    if (data) {
+      $.ajax({
+        type: 'POST',
+        url: '/local/templates/main/include/ajax/feedback_form.php',
+        dataType: 'json',
+        data: data,
+        success: function(data) {
+          console.log(data);
+          // obj.hide().siblings('[data-type=success-message]');
+        }
+      });
+    }
+  });
+}
+
