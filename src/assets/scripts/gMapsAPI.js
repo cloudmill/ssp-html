@@ -138,14 +138,20 @@ if ($("#map").width()) {
         map: map,
         icon: "/local/templates/main/assets/images/icons/pin.svg",
       });
+      bounds.extend(coordinates);
     };
 
     let latLng = null;
+
+    let bounds = new google.maps.LatLngBounds();
 
     for (let key in dataCoordinates) {
       latLng = dataCoordinates[key].split(',');
 
       addMarker({ lat: Number(latLng[0]), lng: Number(latLng[1]) });
+
     }
+
+    map.fitBounds(bounds);
   });
 }
