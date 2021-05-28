@@ -76,6 +76,7 @@
     "limarquee": "^1.0.9",
     "locomotive-scroll": "^4.1.1",
     "normalize.css": "^8.0.1",
+    "parsleyjs": "^2.9.2",
     "rangeslider.js": "^2.3.3",
     "rellax": "^1.12.1",
     "scrollmagic": "^2.0.7",

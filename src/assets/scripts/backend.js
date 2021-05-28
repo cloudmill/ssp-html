@@ -1,8 +1,13 @@
+import "parsleyjs";
+import mask from "inputmask";
+
 events();
 cases();
+validates();
+masks();
 
 function events() {
-  console.log('events');
+  console.log("events");
   $("[data-type=js-event-filter-tag]").on("click", function (e) {
     e.preventDefault();
     $(this).toggleClass("active");
@@ -46,7 +51,7 @@ function events() {
 }
 
 function cases() {
-  console.log('cases');
+  console.log("cases");
   $("[data-type=js-case-filter-tag]").on("click", function (e) {
     e.preventDefault();
     $(this).toggleClass("active");
@@ -87,4 +92,22 @@ function cases() {
       casesList.html(a);
     });
   }
+}
+
+function validates() {
+  $("[data-type=feedback-form]").parsley();
+
+  window.Parsley.addValidator("phone", {
+    validateString: function (value) {
+      if (value.length == 17 && value[4] == 9) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  });
+}
+
+function masks() {
+  Inputmask({ mask: "+7 (999) 999-9999" }).mask("[data-mask=phone]");
 }

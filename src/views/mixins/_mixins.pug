@@ -93,7 +93,7 @@ mixin feedbackForm(title, agree_id)
         input(type="email", name="email", placeholder="E-mail")
         p.error Поле не заполнено
       .feedback-field.feedback-phone
-        input(type="phone", name="phone", placeholder="Телефон*", required)
+        input(type="phone", name="phone", placeholder="Телефон*", data-mask="phone", required)
         p.error Поле не заполнено
       textarea(name="message", placeholder="Сообщение")
     .feedback__submit
