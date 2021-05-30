@@ -117,19 +117,23 @@ function masks() {
 }
 
 function submitForm() {
-  $(document).on('click', '[data-type=form-submit]', function (e) {
+  $('[data-type=feedback-form]').submit(function (e) {
     e.preventDefault();
 
-    let obj = $(this),
-      container = obj.parents('[data-type=feedback-form]'),
+    let form = $(this),
       data = {},
-      formType = container.attr('data-title-type');
+      formType = form.attr('data-title-type'),
+      namePractic = form.attr('data-name-practic');
 
     if (formType) {
       data['UF_TYPE'] = formType;
     };
 
-    container.find('input, textarea').each(function () {
+    if (namePractic) {
+      data['UF_PRACTIC'] = namePractic;
+    }
+
+    form.find('input, textarea').each(function () {
       data[$(this).attr('data-uf')] = $(this).val();
     });
 
