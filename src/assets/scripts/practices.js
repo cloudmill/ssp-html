@@ -36,6 +36,10 @@ if ($(".main.practices").width()) {
       parent.addClass("active");
       $(e.delegateTarget).next(".accordion-item__content").slideDown(600);
     }
+
+    setTimeout(() => {
+      window.scroller.update();
+    }, 600);
   });
 
   if ($(window).width() <= 1060) {

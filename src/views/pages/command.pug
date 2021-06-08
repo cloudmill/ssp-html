@@ -1,9 +1,5 @@
 extends ../layouts/master.pug
 
-block header
-  .command-page
-    include ../partials/_header.pug
-
 block content
   -
     const command = [
@@ -155,22 +151,25 @@ block content
         ]
       },
     ]
-  main.main.command.container-fluid.px-0
-    +pageTitle("Команда")
+  main.main.command.container-fluid.px-0(data-scroll-container)
+    .header-parent(data-scroll-section data-header-parent)
+      include ../partials/_header.pug
 
-    .command__content
+    +pageTitle("Команда")(data-scroll-section)
+
+    .command__content(data-scroll-section)
       .row
         .col-8
           .command__img
             img(src="assets/images/command/command-img.jpg").desktop
             img(src="assets/images/command/command-img-mobile.jpg").mobile
-            .command__img-text.command__img-text
+            .command__img-text.command__img-text(data-scroll data-scroll-speed="2")
               img.svg(src="assets/images/command/S.svg")
               img.svg(src="assets/images/command/S.svg")
               img.svg(src="assets/images/command/P.svg")
       .row
         .col-8
-          .command__slider.swiper-container(data-aos="fade-up")
+          .command__slider.swiper-container.fadeInUp(data-scroll)
             .command__slider-wrapper.swiper-wrapper
               each slide in command
                 .command__slider-slide.swiper-slide
@@ -180,9 +179,12 @@ block content
                         img(src=slide.img, alt=slide.surname)
                     .col-8.col-xxl-3.order-3.order-xxl-2
                       .command__slider-slide-content
-                        span.number= slide.number
-                        h4.surname= slide.surname
-                        p.name= slide.fullName
+                        span.number
+                          span.number__span= slide.number
+                        h4.surname
+                          span.surname__span= slide.surname
+                        p.name
+                          span.name__span= slide.fullName
                         .command__slider-slide-content-block
                           p.position= slide.position
                           .links-block
@@ -196,8 +198,8 @@ block content
                     .col-2.col-sm-5.col-xxl-2.d-flex.justify-content-end.order-2.order-xxl-3(style="position: relative;")
                       .command__slider-button-prev.swiper-button-prev
                         .button-active
-                          img.svg(src="assets/images/icons/slider-arrow-small.svg", alt="prev")
-                        img.svg(src="assets/images/icons/slider-arrow.svg", alt="prev")
+                          img.svg(src="assets/images/icons/slider-arrow-small-left.svg", alt="prev")
+                        img.svg(src="assets/images/icons/slider-arrow-left.svg", alt="prev")
                       .command__slider-button-next.swiper-button-next
                         .button-active
                           img.svg(src="assets/images/icons/slider-arrow-small.svg", alt="next")
@@ -207,5 +209,5 @@ block content
 
     +seeNext("events", "События")
 
-block footer
-  include ../partials/_footer.pug
+    .footer__wrap(data-scroll-section)
+      include ../partials/_footer.pug

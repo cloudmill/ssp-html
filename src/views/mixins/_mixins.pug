@@ -1,5 +1,5 @@
 mixin moreBtn(href, text)
-  a.more-btn(href=href)
+  a.more-btn(href=href)&attributes(attributes)
     img(src="assets/images/icons/arrow-right.svg", alt="more")
     span= text
 
@@ -9,11 +9,11 @@ mixin beforeBtn(href, text)
     span= text
 
 mixin tabBtn(href, text, className)
-  a.tab-btn(href=href ? href : "#", class=className ? className : "", onclick="event.preventDefault()")
+  a.tab-btn(href=href ? href : "#", class=className ? className : "", onclick="event.preventDefault()")&attributes(attributes)
     span= text
 
 mixin newsItem(date, title, moreUrl, tabs)
-  li.news__item
+  li.news__item&attributes(attributes)
     p.news__item-date= date
     a(href="").news__item-title= title
     ul.news__item-themes
@@ -23,19 +23,22 @@ mixin newsItem(date, title, moreUrl, tabs)
     +moreBtn(moreUrl, "Подробнее")
 
 mixin pageTitle(title)
-  .page-title
+  .page-title&attributes(attributes)
     .row.justify-content-center
       .col-8.col-xl-4
-        h1= title
+        h1
+          span(data-scroll)= title
 
 mixin seeNext(url, title)
-  a.see-next(href=url data-aos="fade-up")
+  a.see-next(href=url data-scroll-section)
     .see-next__content
       .row
         .col-8.col-lg-2
-          p.see-next__subtitle Смотрите дальше
+          p.see-next__subtitle
+            span.see-next__subtitle-span(data-scroll) Смотрите дальше
         .col-6.col-lg-5
-          h2.see-next__title= title
+          h2.see-next__title
+            span.see-next__title-span(data-scroll)= title
       button.see-next__button
         img(src="assets/images/icons/arrow-right.svg", alt="more")
 
@@ -46,8 +49,8 @@ mixin agreeCheckbox(id)
     p.error Остутствует согласие на обработку персональных данных
 
 mixin eventsSubscribe(is_detail)
-  .events__subscribe(data-aos="fade-up")
-    .events__subscribe-block
+  #target.events__subscribe.fadeInUp(data-scroll)&attributes(attributes)
+    .events__subscribe-block(data-scroll data-scroll-sticky data-scroll-target="#target")
       if !is_detail
         .filter
           .filter__tabs
@@ -82,8 +85,9 @@ mixin eventsSubscribe(is_detail)
               a(href="#") Вконтакте
 
 mixin feedbackForm(title, agree_id)
-  .feedback(data-aos="fade-up")
-    h2.feedback__title.active=title
+  .feedback
+    h2.feedback__title.active
+      span.feedback__title-span(data-scroll)= title
     h2.feedback__title Мы приняли ваше сообщение и ответим вам в ближайшее время.
     form.feedback__form
       .feedback-field.feedback-name
@@ -105,7 +109,7 @@ mixin feedbackForm(title, agree_id)
         +agreeCheckbox(agree_id)
 
 mixin caseItem(caseItem, isOtherCases)
-  li.case-item(class = isOtherCases ? "small" : "" data-aos="fade-up")
+  li.case-item(class = isOtherCases ? "small" : "" )&attributes(attributes)
     .case-item__content
       a(href=caseItem.url).case-item__link
       .case-item__content-title-block

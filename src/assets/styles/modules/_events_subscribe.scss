@@ -11,8 +11,10 @@
   }
 
   &-block {
-    position: sticky;
-    top: 130px;
+    // position: sticky;
+    position: absolute;
+    // top: 130px;
+    top: 0;
     height: fit-content;
 
     @media (max-width: 1200px) {

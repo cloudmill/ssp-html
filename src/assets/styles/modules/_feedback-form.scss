@@ -5,6 +5,18 @@
     line-height: 120%;
     display: none;
 
+    overflow: hidden;
+
+    &-span {
+      display: block;
+      visibility: hidden;
+
+      &.is-inview {
+        visibility: visible;
+        animation: textIn 0.6s $timing;
+      }
+    }
+
     @media (max-width: 768px) {
       font-size: 24px;
     }

@@ -8,6 +8,11 @@ $footer-bg-img: url("../../assets/images/icons/footer-bg.svg");
   background-size: cover;
   padding: 160px 0 80px;
 
+  &__wrap {
+    overflow: hidden;
+    background-color: $color-8;
+  }
+
   @media (max-width: 768px) {
     padding: 40px 0;
   }

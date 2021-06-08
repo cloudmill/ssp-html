@@ -48,31 +48,38 @@ $(() => {
       `stroke-dashoffset ${loaderDuration}ms cubic-bezier(0.45, 0, 0.55, 1)`
     );
     circle.css("display", "block");
-    
+
     // закрытие прелоадера
     function preloaderClose() {
       $(".loaded-content").css("visibility", "visible");
       circle.css("strokeDashoffset", 0);
 
-      $("body").css("overflow", "visible");
+      // $("body").css("overflow", "visible");
+
 
       setTimeout(() => {
+        $('body').addClass('loaded');
+
         $(".loader").addClass("hidden");
 
         const fullpageBullets = $(".fulpage__slider-bullet"),
           fullpageBulletsCircle = fullpageBullets.find(
             ".bullet-progress__circle"
+          ),
+          fullpageBulletsLittleCircle = fullpageBullets.find(
+            ".bullet-progress__little-circle"
           );
         $(fullpageBullets[0]).addClass("fulpage__slider-bullet-filling");
         $(fullpageBulletsCircle[0]).css("strokeDashoffset", 0);
+        $(fullpageBulletsLittleCircle[0]).css("transform", "rotate(360deg)");
 
-        AOS.init({
-          offset: 50,
-          duration: 600,
-          easing: "ease-in-out-quad",
-          delay: 100,
-          once: true,
-        });
+        // AOS.init({
+        //   offset: 50,
+        //   duration: 600,
+        //   easing: "ease-in-out-quad",
+        //   delay: 100,
+        //   once: true,
+        // });
       }, loaderDuration);
     }
 
@@ -83,15 +90,17 @@ $(() => {
     $("body").css("overflow", "hidden");
 
     setTimeout(() => {
-      $("body").css("overflow", "visible");
+      $('body').addClass('loaded');
 
-      AOS.init({
-        offset: 50,
-        duration: 600,
-        easing: "ease-in-out-quad",
-        delay: 100,
-        once: true,
-      });
+      // $("body").css("overflow", "visible");
+
+      // AOS.init({
+      //   offset: 50,
+      //   duration: 600,
+      //   easing: "ease-in-out-quad",
+      //   delay: 100,
+      //   once: true,
+      // });
 
     }, 500);
   }

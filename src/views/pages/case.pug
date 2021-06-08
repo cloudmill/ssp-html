@@ -1,9 +1,5 @@
 extends ../layouts/master.pug
 
-block header
-  .cases-page
-    include ../partials/_header.pug
-
 block content
   -
     const cases_other = [
@@ -70,12 +66,15 @@ block content
       },
     ]
 
-  main.main.case.container-fluid.px-0
-    .case__content
+  main.main.case.container-fluid.px-0(data-scroll-container)
+    .header-parent(data-scroll-section data-header-parent)
+      include ../partials/_header.pug
+
+    .case__content(data-scroll-section)
       .row
         .col-2.d-none.d-lg-block
-          .left-block(data-aos="fade-up")
-            .case__share
+          .left-block#target
+            .case__share.fadeInUp(data-scroll data-scroll-sticky data-scroll-target="#target")
               +beforeBtn("/cases", "Все кейсы")
               .share
                 p.share__title Поделиться новостью
@@ -86,16 +85,17 @@ block content
                     a(href="#") Вконтакте
         .col-8.col-lg-6.col-xl-4
           .case__head
-            h1.case__title Защита интересов Европейского Университета
-            +tabBtn("#", "споры с государственными органами", "disabled")
+            h1.case__title
+              span.case__title-span(data-scroll) Защита интересов Европейского Университета
+            +tabBtn("#", "споры с государственными органами", "disabled")(class="fadeIn", data-scroll)
             .case__head-img
               span
                 img(src="assets/images/cases/university.png", alt="Европейский университет в Санкт-Петербурге")
           .case-block
-            .subject(data-aos="fade-up")
+            .subject.fadeInUp(data-scroll)
               p Будучи собственником двух парковочных мест в крытом паркинге наш Клиент после ввода в эксплуатацию паркинга обратился к Застройщику с требование о замене парковочных мест, так как использовать их без ущерба автомобилю невозможно: ширина проезжей части автостоянки заужена из-за установления металлических колесоотбойников. В замене мест Застройщик отказал.
               p Назначенная в рамках судебного разбирательства экспертиза выявила грубое нарушение нормативов при строительстве - ширина проезжей части и ширина полосы движения оказались уже. Доводы юристов убедили суд в том, что Застройщик продал Клиенту товар с неоговоренными недостатками, не уведомив Клиента о том, что заезд в паркинг автомобиля без повреждения невозможен, тем самым ввел в заблуждение Клиента о качестве и свойстве продаваемых парковочных мест.
-            .result(data-aos="fade-up")
+            .result.fadeInUp(data-scroll)
               h4.result__title В результате в пользу Клиента взыскано с Застройщика более 3 млн. рублей:
               ul.result__numeric-list
                 li #[span 1.] Если Вы сомневаетесь или не согласны с включением вашего здания в указанный Перечень, обратитесь к специалистам ССП-Консалт, мы поможем проанализировать правильность расчета и, в случае необходимости, оспорить решение исполнительного органа.
@@ -106,10 +106,11 @@ block content
                 li Если же объект в Перечень включен правомерно, специалисты ССП-Консалт помогут в оспаривании кадастровой стоимости зданий, а также земельных участков.
 
       .case__other-cases
-        h2.case__other-cases-title Другие кейсы
+        h2.case__other-cases-title
+          span.case__other-cases-title-span(data-scroll) Другие кейсы
         ul.case__other-cases-block
           each caseItem in cases_other
-            +caseItem(caseItem, true)
+            +caseItem(caseItem, true)(class="fadeInUp" data-scroll)
 
-block footer
-  include ../partials/_footer.pug
+    .footer__wrap(data-scroll-section)
+      include ../partials/_footer.pug

@@ -1,9 +1,5 @@
 extends ../layouts/master.pug
 
-block header
-  .events-page
-    include ../partials/_header.pug
-
 block content
   -
     const events = [
@@ -70,28 +66,31 @@ block content
       },
     ]
 
-  main.main.events.container-fluid.px-0
-    +pageTitle("События")
+  main.main.events.container-fluid.px-0(data-scroll-container)
+    .header-parent(data-scroll-section data-header-parent)
+      include ../partials/_header.pug
 
-    .events__content
+    +pageTitle("События")(data-scroll-section)
+
+    .events__content(data-scroll-section)
       .row.justify-content-xl-between.flex-xl-nowrap
         .col-8.col-xl-2
           .left-block
             +eventsSubscribe()
         .col-8.col-xl-6
           ul.events__block-list
-            li.events__block-item(data-aos="fade-up")
+            li.events__block-item(data-scroll)
               ul.events__items
                 each event in events
-                  +newsItem(event.date, event.title, event.moreUrl, event.tabs)
-            li.events__block-item(data-aos="fade-up")
+                  +newsItem(event.date, event.title, event.moreUrl, event.tabs)(class="fadeInLeft" data-scroll)
+            li.events__block-item(data-scroll)
               ul.events__items
                 each event in events
-                  +newsItem(event.date, event.title, event.moreUrl, event.tabs)
-            li.events__block-item(data-aos="fade-up")
+                  +newsItem(event.date, event.title, event.moreUrl, event.tabs)(class="fadeInLeft" data-scroll)
+            li.events__block-item(data-scroll)
               ul.events__items
                 each event in events
-                  +newsItem(event.date, event.title, event.moreUrl, event.tabs)
+                  +newsItem(event.date, event.title, event.moreUrl, event.tabs)(class="fadeInLeft" data-scroll)
           .subscribe
             p.subscribe-title.active Подписаться на ССП–Консалт
             .subscribe-email
@@ -102,5 +101,5 @@ block content
 
     +seeNext("contacts", "Контакты")
 
-block footer
-  include ../partials/_footer.pug
+    .footer__wrap(data-scroll-section)
+      include ../partials/_footer.pug

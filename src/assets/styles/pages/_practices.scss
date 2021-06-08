@@ -305,6 +305,18 @@ $practices-header-bg-color: #9ac9d8;
       font-family: $additional-font-family;
       color: $color-7;
 
+      overflow: hidden;
+
+      &-span {
+        display: block;
+        visibility: hidden;
+
+        &.is-inview {
+          visibility: visible;
+          animation: textIn 0.6s $timing;
+        }
+      }
+
       @media (max-width: 768px) {
         font-size: 35px;
         max-width: 100%;
@@ -319,6 +331,18 @@ $practices-header-bg-color: #9ac9d8;
       line-height: 90%;
       font-family: $additional-font-family;
       color: $color-7;
+
+      overflow: hidden;
+
+      &-span {
+        display: block;
+        visibility: hidden;
+
+        &.is-inview {
+          visibility: visible;
+          animation: textIn 0.6s $timing;
+        }
+      }
 
       @media (max-width: 768px) {
         left: 20px;
@@ -473,9 +497,22 @@ $practices-header-bg-color: #9ac9d8;
   &__services {
     &-title {
       font-size: 130px;
-      line-height: 90%;
+      // line-height: 90%;
+      line-height: normal;
       font-family: $additional-font-family;
       color: $color-6;
+
+      overflow: hidden;
+
+      &-span {
+        display: block;
+        visibility: hidden;
+
+        &.is-inview {
+          visibility: visible;
+          animation: textIn 0.6s $timing;
+        }
+      }
 
       @media (max-width: 768px) {
         font-size: 40px;
@@ -839,6 +876,18 @@ $practices-header-bg-color: #9ac9d8;
           font-family: $additional-font-family;
           color: $color-7;
 
+          overflow: hidden;
+
+          &-span {
+            display: block;
+            visibility: hidden;
+
+            &.is-inview {
+              visibility: visible;
+              animation: textIn 0.6s $timing;
+            }
+          }
+
           @media (max-width: 768px) {
             font-size: 40px;
           }
@@ -849,6 +898,18 @@ $practices-header-bg-color: #9ac9d8;
           line-height: 120%;
           margin-top: -12px;
           margin-left: 102px;
+
+          overflow: hidden;
+
+          &-span {
+            display: block;
+            visibility: hidden;
+
+            &.is-inview {
+              visibility: visible;
+              animation: textIn 0.6s $timing;
+            }
+          }
 
           @media (max-width: 768px) {
             line-height: 140%;
@@ -1029,9 +1090,22 @@ $practices-header-bg-color: #9ac9d8;
 
     &-title {
       font-size: 130px;
-      line-height: 90%;
+      // line-height: 90%;
+      line-height: normal;
       font-family: $additional-font-family;
       margin-bottom: 80px;
+
+      overflow: hidden;
+
+      &-span {
+        display: block;
+        visibility: hidden;
+
+        &.is-inview {
+          visibility: visible;
+          animation: textIn 0.6s $timing;
+        }
+      }
 
       @media (max-width: 768px) {
         margin-bottom: 40px;

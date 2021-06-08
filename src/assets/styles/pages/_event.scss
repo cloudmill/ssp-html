@@ -44,6 +44,18 @@
           line-height: 100%;
           text-align: center;
 
+          overflow: hidden;
+
+          &-span {
+            display: block;
+            visibility: hidden;
+
+            &.is-inview {
+              visibility: visible;
+              animation: textIn 0.6s $timing;
+            }
+          }
+
           @media (max-width: 768px) {
             font-size: 24px;
             line-height: 110%;
@@ -158,9 +170,22 @@
     &-title {
       max-width: 974px;
       font-size: 130px;
-      line-height: 90%;
+      // line-height: 90%;
+      line-height: normal;
       font-family: $additional-font-family;
       margin-bottom: 80px;
+
+      overflow: hidden;
+
+      &-span {
+        display: block;
+        visibility: hidden;
+
+        &.is-inview {
+          visibility: visible;
+          animation: textIn 0.6s $timing;
+        }
+      }
 
       @media (max-width: 768px) {
         font-size: 40px;
@@ -169,9 +194,27 @@
     }
 
     &-list {
+      position: relative;
       display: flex;
       justify-content: space-between;
-      border-top: 1px solid $color-1;
+      // border-top: 1px solid $color-1;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 1px;
+        background: $color-1;
+        @include transition;
+      }
+
+      &.is-inview {
+        &::before {
+          width: 100%;
+        }
+      }
 
       @media (max-width: 768px) {
         flex-direction: column;

@@ -1,4 +1,4 @@
-.recognition
+.recognition(data-scroll-section)
   -
     const recognitions_1 = [
       {
@@ -166,9 +166,10 @@
       },
     ]
 
-  h2.recognition__title Признание
+  h2.recognition__title
+    span.recognition__title-span(data-scroll) Признание
 
-  .recognition__content
+  .recognition__content(data-scroll)
     .recognition__content-row.recognition__content-row-1
       each recognition in recognitions_1
         .recognition__content-item

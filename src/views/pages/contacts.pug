@@ -1,15 +1,15 @@
 extends ../layouts/master.pug
 
-block header
-  .contacts-page
-    include ../partials/_header.pug
-
 block content
-  main.main.contacts.container-fluid.px-0
-    .contacts-block
-      .contacts-block__content(data-aos="fade-up")
+  main.main.contacts.container-fluid.px-0(data-scroll-container)
+
+
+    .contacts-block(data-scroll-section data-header-parent)
+      include ../partials/_header.pug
+
+      .contacts-block__content
         +pageTitle("Контакты")
-        .row
+        .row.fadeInUp(data-scroll)
           .col-8.col-md-4.d-flex.justify-content-xl-end
             ul.contacts-block__addresses
               li.contacts-block__address
@@ -24,30 +24,33 @@ block content
               a(href="mailto:site@ssp-consult.ru").email site@ssp-consult.ru
               p.work-time #[span пнд — пт] #[br] #[span 9 — 18.30]
 
-    .contacts__map(data-aos="fade-up")
-      #map
+    .contacts__map(data-scroll-section)
+      #map.fadeIn(data-scroll)
 
-    .contacts__advices
-      p.contacts__advices-subtitle Интересное о праве
-      h2.contacts__advices-title Советы и рекомендации в наших соц.сетях
+    .contacts__advices(data-scroll-section)
+      p.contacts__advices-subtitle
+        span.contacts__advices-subtitle-span(data-scroll) Интересное о праве
+      h2.contacts__advices-title
+        span.contacts__advices-title-span(data-scroll) Советы и рекомендации в наших соц.сетях
       .contacts__advices-imgs
         .row.justify-content-end
           .col.col-md-2.pe-xs-0
-            a.contacts__advice-img(href="#" data-aos="fade-up")
+            a.contacts__advice-img.fadeInUp(data-scroll href="#")
               img(src="assets/images/contacts/advice-1.png")
           .col.col-md-2.px-xs-0
-            a.contacts__advice-img(href="#" data-aos="fade-up" data-aos-delay="200")
+            a.contacts__advice-img.fadeInUp(data-scroll href="#")
               img(src="assets/images/contacts/advice-2.png")
           .col.col-md-2.ps-xs-0
-            a.contacts__advice-img(href="#" data-aos="fade-up" data-aos-delay="400")
+            a.contacts__advice-img.fadeInUp(data-scroll href="#")
               img(src="assets/images/contacts/advice-3.png")
       .contacts__advices-join
-        .row.justify-content-end(data-aos="fade-up")
+        .row.justify-content-end
           .col-8.col-md-4
-            p.join-title Присоединяйтесь
+            p.join-title
+              span.join-title-span(data-scroll) Присоединяйтесь
           .col-4.d-none.d-md-block
           .col-4.col-xl-2
-            ul.contacts__advices-networks
+            ul.contacts__advices-networks.fadeInUp(data-scroll)
               li.contacts__advices-network
                 a.link(href="#") Instagram
               li.contacts__advices-network
@@ -55,12 +58,12 @@ block content
               li.contacts__advices-network
                 a.link(href="#") Telegram
 
-    .contacts__feedback
+    .contacts__feedback(data-scroll-section)
       .row
-        .col-8.col-sm-6
+        .col-8.col-sm-6.fadeInUp(data-scroll)
           +feedbackForm("Задать вопрос или запросить коммерческое предложение", "feedback-agree")
 
     +seeNext("about-company", "О компании")
 
-block footer
-  include ../partials/_footer.pug
+    .footer__wrap(data-scroll-section)
+      include ../partials/_footer.pug

@@ -71,7 +71,10 @@ $debug-mode: false !default;
 @import "themes/_scheme-default";
 
 // Mixins
+
 @import "helpers/*.scss";
+
+@import "animations.scss";
 
 // Plugins
 @import "vendors/*.scss";

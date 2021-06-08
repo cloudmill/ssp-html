@@ -19,13 +19,34 @@
   &__block-list {
     padding-left: 80px;
 
+    position: relative;
+
     @media (max-width: 1200px) {
       padding-left: 0;
     }
 
     .events__block-item {
-      border-top: 1px solid $color-1;
+      // border-top: 1px solid $color-1;
       margin: 0 0 40px;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 1px;
+        background: $color-1;
+        @include transition;
+      }
+
+      &.is-inview {
+        &::before {
+          width: 100%;
+        }
+      }
+
 
       @media (max-width: 768px) {
         border-top: none;

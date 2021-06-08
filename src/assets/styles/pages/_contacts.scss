@@ -151,6 +151,12 @@ $contacts-bg-img: url("../../assets/images/contacts/contacts-bg.png");
     }
   }
 
+  &__advice {
+    &-img {
+      display: block;
+    }
+  }
+
   &__advices {
     max-width: 1920px;
     padding: 0 40px;
@@ -170,6 +176,18 @@ $contacts-bg-img: url("../../assets/images/contacts/contacts-bg.png");
       font-family: $additional-font-family;
       margin-bottom: 20px;
 
+      overflow: hidden;
+
+      &-span {
+        display: block;
+        visibility: hidden;
+
+        &.is-inview {
+          visibility: visible;
+          animation: textIn 0.6s $timing;
+        }
+      }
+
       @media (max-width: 768px) {
         font-size: 16px;
       }
@@ -179,6 +197,18 @@ $contacts-bg-img: url("../../assets/images/contacts/contacts-bg.png");
       font-size: 55px;
       line-height: 120%;
       max-width: 680px;
+
+      overflow: hidden;
+
+      &-span {
+        display: block;
+        visibility: hidden;
+
+        &.is-inview {
+          visibility: visible;
+          animation: textIn 0.6s $timing;
+        }
+      }
 
       @media (max-width: 768px) {
         font-size: 24px;
@@ -215,6 +245,17 @@ $contacts-bg-img: url("../../assets/images/contacts/contacts-bg.png");
       .join-title {
         font-size: 55px;
         line-height: 120%;
+        overflow: hidden;
+
+        &-span {
+          display: block;
+          visibility: hidden;
+
+          &.is-inview {
+            visibility: visible;
+            animation: textIn 0.6s $timing;
+          }
+        }
 
         @media (max-width: 768px) {
           font-size: 24px;

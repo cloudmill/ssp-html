@@ -1,8 +1,5 @@
 extends ../layouts/master.pug
 
-block header
-  .about-company-page
-    include ../partials/_header.pug
 
 block content
   -
@@ -57,46 +54,50 @@ block content
       },
     ]
 
-  main.main.about-company.container-fluid.px-0
-    +pageTitle("О компании")
+  main.main.about-company.container-fluid.px-0(data-scroll-container)
+    .header-parent(data-scroll-section data-header-parent)
+      include ../partials/_header.pug
 
-    .ticker
-      .ticker-wrapper.text
+    +pageTitle("О компании")(data-scroll-section)
+
+    .ticker(data-scroll-section)
+      .ticker-wrapper.text(data-scroll-direction="horizontal" data-scroll-speed="1" data-scroll)
         p.ticker-content #[span Сила] #[span Стабильного] #[span Партнерства]
       .ticker-wrapper.images
-        img.ticker-img-1(src="assets/images/about-company/ticker-img-1.jpg", alt="ticker-img-1")
-        img.ticker-img-2(src="assets/images/about-company/ticker-img-2.jpg", alt="ticker-img-2")
-        img.ticker-img-3(src="assets/images/about-company/ticker-img-3.jpg", alt="ticker-img-3")
+        img.ticker-img-1(src="assets/images/about-company/ticker-img-1.jpg", alt="ticker-img-1" data-scroll-direction="horizontal" data-scroll-speed="3" data-scroll)
+        img.ticker-img-2(src="assets/images/about-company/ticker-img-2.jpg", alt="ticker-img-2" data-scroll-direction="horizontal" data-scroll-speed="3" data-scroll)
+        img.ticker-img-3(src="assets/images/about-company/ticker-img-3.jpg", alt="ticker-img-3" data-scroll-direction="horizontal" data-scroll-speed="3" data-scroll)
 
-    .about-company__top
+    .about-company__top(data-scroll-section)
       .row.justify-content-center
         .col-8.col-md-6
-          p.about-company__top-description(data-aos="fade-up") С 2008 года, специализируемся на консалтинге в области права и риск менеджмента, оказании профессиональной юридической помощи и сопровождении бизнеса своих клиентов.
-      .row.justify-content-end
+          p.about-company__top-description С 2008 года, специализируемся на консалтинге в области права и риск менеджмента, оказании профессиональной юридической помощи и сопровождении бизнеса своих клиентов.
+      .row.justify-content-end.fadeInUp(data-scroll)
         .col-8.col-md-4
-          .about-company__top-subdescription(data-aos="fade-up")
+          .about-company__top-subdescription
             .row
               .col-8.col-md-6
                 p Наш основной принцип деятельности заложен в самом названии и представляет собой силу стабильного партнерства, мы стремимся достигать высоких результатов и поставленных перед нами задач, становясь не просто инструментом для наших клиентов, а полноценным партнером в ведении их бизнеса и решении иных задач.
 
-    .about-company__advantages(data-aos="fade-up")
-      p.about-company__advantages-text #[span Доверие, конфиденциальность,] #[br] #[span ответственность и] #[br] #[span профессионализм] — то, что мы готовы предоставить Вам #[br] в процессе нашего сотрудничества.
+    .about-company__advantages(data-scroll-section)
+      p.about-company__advantages-text.fadeInUp(data-scroll) #[span Доверие, конфиденциальность,] #[br] #[span ответственность и] #[br] #[span профессионализм] — то, что мы готовы предоставить Вам #[br] в процессе нашего сотрудничества.
 
     include ../components/_recognition.pug
 
-    .about-company__clients(data-aos="fade-up")
+    .about-company__clients(data-scroll-section)
       .about-company__clients-header
         .row.justify-content-between
           .col-2.d-none.d-md-block
           .col
-            h2 Наши клиенты
+            h2
+              span(data-scroll) Наши клиенты
           .col-auto
-            .about-company__clients-slider-navigation
+            .about-company__clients-slider-navigation.fadeIn(data-scroll)
               .prev-btn
                 img.svg(src="assets/images/icons/slider-arrow-small.svg", alt="prev")
               .next-btn
                 img.svg(src="assets/images/icons/slider-arrow-small.svg", alt="next")
-      .about-company__clients-slider.swiper-container
+      .about-company__clients-slider.swiper-container.fadeIn(data-scroll)
         .about-company__clients-slider-wrapper.swiper-wrapper
           each client in clients
             .about-company__clients-slider-slide.swiper-slide
@@ -108,5 +109,5 @@ block content
 
     +seeNext("command", "Команда")
 
-block footer
-  include ../partials/_footer.pug
+    .footer__wrap(data-scroll-section)
+      include ../partials/_footer.pug

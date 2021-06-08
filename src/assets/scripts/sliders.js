@@ -95,8 +95,11 @@ const commandSlider = new Swiper(".command__slider", {
   loop: true,
   loopedSlides: 3,
   initialSlide: 0,
-  spaceBetween: 40,
-  speed: 600,
+  effect: "fade",
+  fadeEffect: {
+    crossFade: false
+  },
+  speed: 1,
   simulateTouch: false,
 
   navigation: {
@@ -105,16 +108,38 @@ const commandSlider = new Swiper(".command__slider", {
   },
 });
 
+let isAnimationDisable = true;
+
 const fullPageSliderSettings = {
   loop: true,
   effect: "fade",
-  speed: 600,
+  fadeEffect: {
+    crossFade: false
+  },
+  speed: 1,
   simulateTouch: false,
 
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-  },
+  // autoplay: {
+  //   delay: 5000,
+  //   disableOnInteraction: false,
+  // },
+  on: {
+    slideChange: function() {
+
+      if (isAnimationDisable && this.activeIndex === 2) {
+        isAnimationDisable = false;
+
+        this.slides.forEach(slide => {
+          const elems = slide.querySelectorAll('.is-first-load');
+
+          elems.forEach(el => {
+            el.classList.remove('is-first-load');
+          });
+        });
+      }
+
+    }
+  }
 };
 
 setTimeout(() => {
@@ -143,6 +168,7 @@ setTimeout(() => {
         $(element).addClass("fulpage__slider-bullet-filling");
         setTimeout(() => {
           fillingCircle($(element).find(".bullet-progress__circle"));
+          $(element).find(".bullet-progress__little-circle").css({'transform': 'rotate(360deg)'});
         }, 600);
         return;
       }
@@ -154,6 +180,7 @@ setTimeout(() => {
         $(element).removeClass("fulpage__slider-bullet-filling");
         setTimeout(() => {
           clearCircle($(element).find(".bullet-progress__circle"));
+          $(element).find(".bullet-progress__little-circle").css({'transform': 'rotate(0deg)'});
         }, 600);
       }
     });

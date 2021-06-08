@@ -1,9 +1,5 @@
 extends ../layouts/master.pug
 
-block header
-  .cases-page
-    include ../partials/_header.pug
-
 block content
   -
     const cases_filters = [
@@ -116,13 +112,16 @@ block content
       },
     ]
 
-  main.main.cases.container-fluid.px-0
-    +pageTitle("Кейсы")
+  main.main.cases.container-fluid.px-0(data-scroll-container)
+    .header-parent(data-scroll-section data-header-parent)
+      include ../partials/_header.pug
 
-    .cases__content
+    +pageTitle("Кейсы")(data-scroll-section)
+
+    .cases__content(data-scroll-section)
       .row.justify-content-end
         .col-8.col-xl-6
-          .cases__filter(data-aos="fade-up")
+          .cases__filter.fadeInUp(data-scroll)
             .cases__filter-trigger
               p.cases__filter-trigger-title Категории
               .cases__filter-trigger-img
@@ -140,9 +139,9 @@ block content
       .cases__last
         .row
           .col-8.col-xl-2
-            h3.cases__last-title(data-aos="fade-up") Последний кейс
+            h3.cases__last-title.fadeInUp(data-scroll) Последний кейс
           .col-8.col-xl-6
-            .cases__last-block.last-case(data-aos="fade-up" data-aos-delay="200")
+            .cases__last-block.last-case.fadeInUp(data-scroll)
               a(href="case").cases__last-link
               h4.last-case__title Защита интересов Европейского Университета
               +tabBtn("#", "споры с государственными органами", "disabled")
@@ -151,20 +150,20 @@ block content
                   img(src="assets/images/cases/university.png", alt="Европейский университет в Санкт-Петербурге")
               .last-case__practices
                 p.last-case__practices-title Практики
-                ul.last-case__practices-block 
+                ul.last-case__practices-block
                   li.last-case__practices-item
                     a.link(href="#") Банкротство и антикризисный консалтинг
                   li.last-case__practices-item
                     a.link(href="#") Страховое право
                   li.last-case__practices-item
                     a.link(href="#") Корпоративное право и M&A
-      
+
       ul.cases__all
         each caseItem in cases
-          +caseItem(caseItem)
+          +caseItem(caseItem)(class="fadeInUp" data-scroll)
 
 
     +seeNext("about-company", "О компании")
 
-block footer
-  include ../partials/_footer.pug
+    .footer__wrap(data-scroll-section)
+      include ../partials/_footer.pug

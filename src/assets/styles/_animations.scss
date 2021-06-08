@@ -1,0 +1,189 @@
+@keyframes headerIn {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideChange {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideImgAnimate {
+  from {
+    transform: rotate(10deg) scale(1.2);
+  }
+
+  to {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes textOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes textIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes textIn-10 {
+  from {
+    transform: translateY(10%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(50%);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutUp-10 {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp-10 {
+  from {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fadeInLeft {
+  visibility: hidden;
+
+  &.is-inview {
+    visibility: visible;
+    animation: fadeInLeft 0.6s $timing;
+  }
+}
+
+.fadeInUp {
+  visibility: hidden;
+
+  &.is-inview {
+    visibility: visible;
+    animation: fadeInUp 0.6s $timing;
+  }
+}
+
+.fadeIn {
+  visibility: hidden;
+
+  &.is-inview {
+    visibility: visible;
+    animation: fadeIn 0.6s $timing;
+  }
+}

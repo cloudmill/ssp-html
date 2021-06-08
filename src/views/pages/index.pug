@@ -1,58 +1,72 @@
 extends ../layouts/master.pug
 
-block header
-  .index-page
-    include ../partials/_header.pug
+//- block header
+
 
 block content
-  main.index-main
-    .fullpage-block
+  main#main.index-main(data-scroll-container)
+
+    .fullpage-block(data-scroll-section data-header-parent)
+      include ../partials/_header.pug
+
       .fulpage__slider.swiper-container
         .fulpage__slider-wrapper.swiper-wrapper
-          .fulpage__slider-slide.fulpage__slider-slide-1.swiper-slide
-            h3.fulpage__slider-title(data-aos="fade-up") Сила
-            .fullpage__slider-description(data-aos="fade-up")
+          .fulpage__slider-slide.swiper-slide
+            .fulpage__slider-slide-bg-wrap.is-first-load
+              .fulpage__slider-slide-bg(style="background-image: url('assets/images/header/header-slider-1.jpg')")
+            h3.fulpage__slider-title
+              span.fulpage__slider-title-span.is-first-load Сила
+            .fullpage__slider-description.is-first-load
               p Мы исключительные профессионалы. Для нас нет неразрешимых задач. Мы идем до конца. Экспертиза, креативное мышление и коллективизм — это то, что делает нашу компанию сильной.
               +moreBtn('/about-company', "Больше о нас")
-          .fulpage__slider-slide.fulpage__slider-slide-2.swiper-slide
-            h3.fulpage__slider-title Стабильного
+          .fulpage__slider-slide.swiper-slide
+            .fulpage__slider-slide-bg-wrap
+              .fulpage__slider-slide-bg(style="background-image: url('assets/images/header/header-slider-2.jpg')")
+            h3.fulpage__slider-title
+              span.fulpage__slider-title-span Стабильного
             .fullpage__slider-description
               p Высокая экспертиза, сила каждого специалиста и огромный опыт на рынке позволяют нам стабильно работать и достигать нужного результата.
               +moreBtn('/about-company', "Больше о нас")
-          .fulpage__slider-slide.fulpage__slider-slide-3.swiper-slide
-            h3.fulpage__slider-title Партнерства
+          .fulpage__slider-slide.swiper-slide
+            .fulpage__slider-slide-bg-wrap
+              .fulpage__slider-slide-bg(style="background-image: url('assets/images/header/header-slider-3.jpg')")
+            h3.fulpage__slider-title
+              span.fulpage__slider-title-span Партнерства
             .fullpage__slider-description
               p Наша философия — каждый клиент это партнер. Именно такое отношение позволяет эффективно взаимодействовать, отметая формализм и барьеры в коммуникации.
               +moreBtn('/about-company', "Больше о нас")
-        .fulpage__slider-pagination.swiper-pagination(data-aos="fade-up")
+        .fulpage__slider-pagination.swiper-pagination
           .fulpage__slider-bullet.fulpage__slider-bullet-active.swiper-pagination-bullet(data-bullet-index=0)
             span.bullet-content С
             .colored-circle
+            .bullet-progress__little-circle
             svg.bullet-progress(width='220', height='220')
               circle.bullet-progress__circle(stroke='#fff', stroke-width='1', cx='104', cy='104', r='103', fill='transparent')
           .fulpage__slider-bullet.swiper-pagination-bullet(data-bullet-index=1)
             span.bullet-content С
             .colored-circle
+            .bullet-progress__little-circle
             svg.bullet-progress(width='220', height='220')
               circle.bullet-progress__circle(stroke='#fff', stroke-width='1', cx='104', cy='104', r='103', fill='transparent')
           .fulpage__slider-bullet.swiper-pagination-bullet(data-bullet-index=2)
             span.bullet-content П
             .colored-circle
+            .bullet-progress__little-circle
             svg.bullet-progress(width='220', height='220')
               circle.bullet-progress__circle(stroke='#fff', stroke-width='1', cx='104', cy='104', r='103', fill='transparent')
       .fullpage-block__content
-        h1.fullpage-block__title(data-aos="fade-up")
+        h1.fullpage-block__title
           p.first-line
             span.small-text Сила Стабильного Партнерства
             span.line
             span.big-text Наш основной принцип деятельности
           span.big-text заложен в самом названии
-        .fullpage-block__contacts(data-aos="fade-up").d-none.d-xl-flex
+        .fullpage-block__contacts.d-none.d-xl-flex
           a(href="tel:+7 812 901–02–01").phone.link 8 812 901–02–01
           a(href="mailto:site@ssp-consult.ru").email.link site@ssp-consult.ru
 
-    .practices-block
-      .practices__slider.swiper-container(data-aos="fade-up")
+    .practices-block(data-scroll-section)
+      .practices__slider.swiper-container(data-scroll)
         .practices__slider-wrapper.swiper-wrapper
           .practices__slider-slide.practices__slider-slide-1.swiper-slide
             p.slide__subtitle Ведущие практики
@@ -78,21 +92,23 @@ block content
 
     include ../components/_recognition.pug
 
-    .news(data-aos="fade-up")
-      .news__subtitle События
+    .news(data-scroll-section)
+      .news__subtitle
+        span.news__subtitle-span(data-scroll) События
       .news__header
         h2.news__title
-          | Делимся экспертизой.
-          br
-          | Публикуемся в СМИ. Развиваемся.
-        +moreBtn('/events', "Все события")
+          span.news__title-span(data-scroll)
+            | Делимся экспертизой.
+            br
+            | Публикуемся в СМИ. Развиваемся.
+        +moreBtn('/events', "Все события")(data-scroll)
       .news__content.container-fluid
         .row.justify-content-between
           .col-2.ps-0.d-none.d-xxl-block
-            .news__content-img
+            .news__content-img(data-scroll)
               img(src="assets/images/news.jpg", alt="news")
           .col-8.col-xxl-6.px-0
-            ul.news__content-block.news__items.d-flex.justify-content-between
+            ul.news__content-block.news__items.d-flex.justify-content-between(data-scroll)
               +newsItem(
                 "20 декабря 2020",
                 "Дарья Титкова в «Диалоге с бизнесом», при поддержке ЛО ТПП",
@@ -111,7 +127,7 @@ block content
                     text: "арбитраж"
                   }
                 ]
-              )
+              )(data-scroll)
               +newsItem(
                 "20 декабря 2020",
                 "ССП–Консалт ищет пострадавших от бездействий авиакомпаний",
@@ -122,7 +138,7 @@ block content
                     text: "суды"
                   }
                 ]
-              )
+              )(data-scroll)
 
-block footer
-  include ../partials/_footer.pug
+    .footer__wrap(data-scroll-section)
+      include ../partials/_footer.pug
