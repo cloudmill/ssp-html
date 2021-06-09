@@ -1,9 +1,9 @@
 $practices-slide-bg-color: #a0c2cd;
 
 $practices-slide-bg-imgs: (
-  1: url("../../assets/images/practices-slider/practices-slide-1.png"),
-  2: url("../../assets/images/practices-slider/practices-slide-2.png"),
-  3: url("../../assets/images/practices-slider/practices-slide-3.png"),
+  1: url("../../assets/images/practices-slider/practices-slide-1.jpg"),
+  2: url("../../assets/images/practices-slider/practices-slide-2.jpg"),
+  3: url("../../assets/images/practices-slider/practices-slide-3.jpg"),
 );
 
 $fullpage-slide-bg-imgs: (
@@ -109,6 +109,8 @@ $fullpage-slide-bg-imgs: (
           background-position: center;
           background-size: cover;
 
+          will-change: transform;
+
           &-wrap {
             position: absolute;
             top: 0;
@@ -119,6 +121,8 @@ $fullpage-slide-bg-imgs: (
             width: 100%;
             height: 100%;
             overflow: hidden;
+
+            will-change: transform;
           }
         }
 
@@ -246,12 +250,12 @@ $fullpage-slide-bg-imgs: (
           .bullet-content {
             position: relative;
             z-index: 5;
-            font-size: 110px;
-            line-height: 100%;
-            font-family: $additional-font-family;
-            color: $color-7;
-            // transform: translateY(8px);
-            transform: translateY(-6.36%);
+            // font-size: 110px;
+            // line-height: 100%;
+            // font-family: $additional-font-family;
+            // color: $color-7;
+            // // transform: translateY(8px);
+            // transform: translateY(-6.36%);
           }
 
           .colored-circle {
@@ -291,17 +295,22 @@ $fullpage-slide-bg-imgs: (
                 border-radius: 50%;
                 background: #fff;
                 opacity: 0;
-                @include transition($duration: 0.1s, $delay: 0.6s);
+                animation-delay: 0.6s;
+                animation-duration: 0.1s;
+                // @include transition($duration: 0.1s, $delay: 0.6s);
               }
             }
 
             &__circle {
               opacity: 0;
-              @include transition($duration: 0.1s, $delay: 0.6s);
+              animation-delay: 0.6s;
+              animation-duration: 0.1s;
+              // @include transition($duration: 0.1s, $delay: 0.6s);
             }
           }
 
-          &-active {
+          &-active,
+          &.swiper-pagination-bullet-active {
             width: 200px;
             height: 200px;
             z-index: 3;
@@ -316,31 +325,39 @@ $fullpage-slide-bg-imgs: (
               width: 208px;
 
               &__circle {
-                opacity: 1;
+                // opacity: 1;
+                animation-name: fadeIn;
+                animation-fill-mode: both;
                 transform-origin: center;
                 transform: rotate(-90deg);
               }
               &__little-circle {
                 opacity: 1;
+
                 &::before {
-                  opacity: 1;
+                  // opacity: 1;
+                  animation-name: fadeIn;
+                  animation-fill-mode: both;
                 }
               }
             }
           }
 
-          &-filling {
+          &-filling,
+          &.swiper-pagination-bullet-active {
             .bullet-progress {
               &__little-circle {
                 @include transition(
                   $duration: 5s,
-                  $property: transform
+                  $property: transform,
+                  $delay: 0.6s
                 );
               }
               &__circle {
                 @include transition(
                   $duration: 5s,
-                  $property: stroke-dashoffset
+                  $property: stroke-dashoffset,
+                  $delay: 0.6s
                 );
 
               }
@@ -511,6 +528,7 @@ $fullpage-slide-bg-imgs: (
           flex-direction: column;
           justify-content: space-between;
           padding: 40px;
+          will-change: transform;
 
           @media (max-width: 768px) {
             padding: 20px;

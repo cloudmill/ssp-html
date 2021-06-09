@@ -38,7 +38,10 @@
     display: inline-block;
     font-size: 20px;
     line-height: 140%;
+    // line-height: 1;
     font-family: $additional-font-family;
+
+    transform: translateY(-6.5%);
 
     @media (max-width: 768px) {
       font-size: 14px;

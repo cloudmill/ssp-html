@@ -54,24 +54,29 @@ $(() => {
       $(".loaded-content").css("visibility", "visible");
       circle.css("strokeDashoffset", 0);
 
-      // $("body").css("overflow", "visible");
-
-
       setTimeout(() => {
         $('body').addClass('loaded');
 
+        $("body").css("overflow", "auto");
+
         $(".loader").addClass("hidden");
 
-        const fullpageBullets = $(".fulpage__slider-bullet"),
-          fullpageBulletsCircle = fullpageBullets.find(
-            ".bullet-progress__circle"
-          ),
-          fullpageBulletsLittleCircle = fullpageBullets.find(
-            ".bullet-progress__little-circle"
-          );
-        $(fullpageBullets[0]).addClass("fulpage__slider-bullet-filling");
-        $(fullpageBulletsCircle[0]).css("strokeDashoffset", 0);
-        $(fullpageBulletsLittleCircle[0]).css("transform", "rotate(360deg)");
+        // window.fullPageSlider.autoplay = {
+        //   delay: 5600,
+        //   disableOnInteraction: false,
+        // };
+        window.fullPageSlider.autoplay.start();
+
+        // const fullpageBullets = $(".fulpage__slider-bullet"),
+        //   fullpageBulletsCircle = fullpageBullets.find(
+        //     ".bullet-progress__circle"
+        //   ),
+        //   fullpageBulletsLittleCircle = fullpageBullets.find(
+        //     ".bullet-progress__little-circle"
+        //   );
+        // $(fullpageBullets[0]).addClass("fulpage__slider-bullet-filling");
+        // $(fullpageBulletsCircle[0]).css("strokeDashoffset", 0);
+        // $(fullpageBulletsLittleCircle[0]).css("transform", "rotate(360deg)");
 
         // AOS.init({
         //   offset: 50,
@@ -92,7 +97,7 @@ $(() => {
     setTimeout(() => {
       $('body').addClass('loaded');
 
-      // $("body").css("overflow", "visible");
+      $("body").css("overflow", "auto");
 
       // AOS.init({
       //   offset: 50,

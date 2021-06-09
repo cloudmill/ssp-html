@@ -1,5 +1,6 @@
 .header {
-  position: fixed;
+  // position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 15;
@@ -354,7 +355,8 @@
   }
 }
 
-.fullpage-block {
+.fullpage-block,
+.index-main {
 
   .header {
     color: $color-7;

@@ -53,6 +53,7 @@
       position: absolute;
       display: flex;
       align-items: center;
+      will-change: left;
     }
 
     &-row {
