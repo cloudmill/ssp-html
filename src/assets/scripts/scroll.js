@@ -1,4 +1,5 @@
-import LocomotiveScroll from 'locomotive-scroll';
+// import LocomotiveScroll from 'locomotive-scroll';
+import LocomotiveScroll from './locomotive-scroll';
 
 let scroll;
 let initialScroll = 0;
@@ -14,10 +15,10 @@ setTimeout(() => {
     smooth: true,
     lerp: 0.05,
     smartphone: {
-      smooth: true,
+      smooth: false,
     },
     tablet: {
-      smooth: true,
+      smooth: false,
     },
     reloadOnContextChange: true,
     resetNativeScroll: false,

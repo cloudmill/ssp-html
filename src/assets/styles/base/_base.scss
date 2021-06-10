@@ -1,5 +1,9 @@
 .has-scroll-init body {
   overflow: hidden;
+
+  &.touch-device {
+    overflow: auto;
+  }
 }
 
 // [data-scroll-section] {

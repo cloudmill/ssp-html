@@ -260,8 +260,11 @@ $fullpage-slide-bg-imgs: (
 
           .colored-circle {
             position: absolute;
-            height: 0;
-            width: 0;
+            // height: 0;
+            // width: 0;
+            height: 220px;
+            width: 220px;
+            transform: scale(0);
             border-radius: 50%;
             background: $color-5;
             border: none;
@@ -316,8 +319,9 @@ $fullpage-slide-bg-imgs: (
             z-index: 3;
 
             .colored-circle {
-              height: 220px;
-              width: 220px;
+              // height: 220px;
+              // width: 220px;
+              transform: scale(1);
             }
 
             .bullet-progress {
@@ -653,6 +657,7 @@ $fullpage-slide-bg-imgs: (
         & > .svg {
           width: 180px;
           height: 136px;
+          transform: scale(1);
           @include transition();
         }
 
@@ -661,8 +666,11 @@ $fullpage-slide-bg-imgs: (
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 0;
-          height: 0;
+          // width: 0;
+          // height: 0;
+          width: 83px;
+          height: 83px;
+          transform: rotate(0deg) scale(0);
           background: $color-5;
           border-radius: 50%;
           @include transition();
@@ -674,14 +682,15 @@ $fullpage-slide-bg-imgs: (
 
         &:hover {
           & > .svg {
-            width: 0;
-            height: 0;
+            // width: 0;
+            // height: 0;
+            transform: scale(0);
           }
 
           .button-active {
-            transform: rotate(360deg);
-            width: 83px;
-            height: 83px;
+            transform: rotate(360deg) scale(1);
+            // width: 83px;
+            // height: 83px;
           }
         }
 

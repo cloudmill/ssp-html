@@ -14,39 +14,5 @@ const recognition = () => {
   });
 };
 
-// const aboutCompanyTicker = () => {
-//   let timer;
-
-//   const limarqueeText = new Limarquee(tickerText),
-//     limarqueeImgs = new Limarquee(tickerImgs);
-
-//   limarqueeText.render({
-//     circular: false,
-//     drag: false,
-//     hoverstop: false,
-//     scrollamount: 140,
-//   });
-//   limarqueeImgs.render({
-//     circular: true,
-//     drag: false,
-//     hoverstop: false,
-//     scrollamount: 180,
-//   });
-
-//   $(window).on("scroll", () => {
-//     // const tickerTextMoved = tickerText.find(".str_move"),
-//     //   tickerImgsMoved = tickerImgs.find(".str_move");
-
-//     // let textLeft = parseInt(tickerTextMoved.css("left").match(/\d+/)),
-//     //   imgsLeft = tickerImgsMoved.css("left");
-
-//     // console.log("textLeft: ", textLeft);
-
-//     // tickerTextMoved.css("left", textLeft - 300 + "px");
-
-//     // console.log("textLeft: ", tickerTextMoved.css("left"));
-//   });
-// };
-
 recognition();
 // aboutCompanyTicker();
