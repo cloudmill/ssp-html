@@ -61,9 +61,8 @@ block content
     +pageTitle("О компании")(data-scroll-section)
 
     .ticker(data-scroll-section)
-      .ticker-wrapper.text(data-scroll-direction="horizontal" data-scroll-speed="1" data-scroll)
+      .ticker-wrapper.text(data-scroll-direction="horizontal" data-scroll-speed="6" data-scroll)
         p.ticker-content #[span Сила] #[span Стабильного] #[span Партнерства]
-      .ticker-wrapper.images
         img.ticker-img-1(src="assets/images/about-company/ticker-img-1.jpg", alt="ticker-img-1" data-scroll-direction="horizontal" data-scroll-speed="3" data-scroll)
         img.ticker-img-2(src="assets/images/about-company/ticker-img-2.jpg", alt="ticker-img-2" data-scroll-direction="horizontal" data-scroll-speed="3" data-scroll)
         img.ticker-img-3(src="assets/images/about-company/ticker-img-3.jpg", alt="ticker-img-3" data-scroll-direction="horizontal" data-scroll-speed="3" data-scroll)
@@ -80,6 +79,7 @@ block content
                 p Наш основной принцип деятельности заложен в самом названии и представляет собой силу стабильного партнерства, мы стремимся достигать высоких результатов и поставленных перед нами задач, становясь не просто инструментом для наших клиентов, а полноценным партнером в ведении их бизнеса и решении иных задач.
 
     .about-company__advantages(data-scroll-section)
+      .about-company__advantages-bg(data-scroll, data-scroll-speed="-1")
       p.about-company__advantages-text.fadeInUp(data-scroll) #[span Доверие, конфиденциальность,] #[br] #[span ответственность и] #[br] #[span профессионализм] — то, что мы готовы предоставить Вам #[br] в процессе нашего сотрудничества.
 
     include ../components/_recognition.pug

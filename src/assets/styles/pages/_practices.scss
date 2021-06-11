@@ -789,11 +789,20 @@ $practices-header-bg-color: #9ac9d8;
     position: relative;
     margin-top: 160px;
     padding: 160px 0;
-    background: $manager-bg-img, linear-gradient($color-2, $color-2);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-blend-mode: soft-light;
-    background-position: bottom;
+    background: linear-gradient($color-2, $color-2);
+    &-bg {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: $manager-bg-img, linear-gradient($color-2, $color-2);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-blend-mode: soft-light;
+      background-position: bottom;
+    }
 
     @media (max-width: 768px) {
       margin-top: 80px;
@@ -801,6 +810,8 @@ $practices-header-bg-color: #9ac9d8;
     }
 
     &-content {
+      position: relative;
+      z-index: 1;
       max-width: 1920px;
       margin: 0 auto;
       padding: 0 40px;

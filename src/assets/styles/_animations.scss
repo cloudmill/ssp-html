@@ -18,6 +18,16 @@
   }
 }
 
+@keyframes slideChangeOut {
+  from {
+    transform: translateX(0%) scale(1);
+  }
+
+  to {
+    transform: translateX(-20%) scale(1.2);
+  }
+}
+
 @keyframes slideImgAnimate {
   from {
     transform: rotate(10deg) scale(1.2);

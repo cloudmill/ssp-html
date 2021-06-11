@@ -12,49 +12,33 @@ block content
       .fulpage__slider.swiper-container
         .fulpage__slider-wrapper.swiper-wrapper
           .fulpage__slider-slide.swiper-slide
-            .fulpage__slider-slide-bg-wrap.is-first-load
-              .fulpage__slider-slide-bg(style="background-image: url('assets/images/header/header-slider-1.jpg')")
+            .fulpage__slider-slide-bg-wrap-parallax(data-scroll data-scroll-speed="-1")
+              .fulpage__slider-slide-bg-wrap.is-first-load
+                .fulpage__slider-slide-bg(style="background-image: url('assets/images/header/header-slider-1.jpg')")
             h3.fulpage__slider-title
               span.fulpage__slider-title-span.is-first-load Сила
             .fullpage__slider-description.is-first-load
               p Мы исключительные профессионалы. Для нас нет неразрешимых задач. Мы идем до конца. Экспертиза, креативное мышление и коллективизм — это то, что делает нашу компанию сильной.
               +moreBtn('/about-company', "Больше о нас")
           .fulpage__slider-slide.swiper-slide
-            .fulpage__slider-slide-bg-wrap
-              .fulpage__slider-slide-bg(style="background-image: url('assets/images/header/header-slider-2.jpg')")
+            .fulpage__slider-slide-bg-wrap-parallax(data-scroll data-scroll-speed="-1")
+              .fulpage__slider-slide-bg-wrap
+                .fulpage__slider-slide-bg(style="background-image: url('assets/images/header/header-slider-2.jpg')")
             h3.fulpage__slider-title
               span.fulpage__slider-title-span Стабильного
             .fullpage__slider-description
               p Высокая экспертиза, сила каждого специалиста и огромный опыт на рынке позволяют нам стабильно работать и достигать нужного результата.
               +moreBtn('/about-company', "Больше о нас")
           .fulpage__slider-slide.swiper-slide
-            .fulpage__slider-slide-bg-wrap
-              .fulpage__slider-slide-bg(style="background-image: url('assets/images/header/header-slider-3.jpg')")
+            .fulpage__slider-slide-bg-wrap-parallax(data-scroll data-scroll-speed="-1")
+              .fulpage__slider-slide-bg-wrap
+                .fulpage__slider-slide-bg(style="background-image: url('assets/images/header/header-slider-3.jpg')")
             h3.fulpage__slider-title
               span.fulpage__slider-title-span Партнерства
             .fullpage__slider-description
               p Наша философия — каждый клиент это партнер. Именно такое отношение позволяет эффективно взаимодействовать, отметая формализм и барьеры в коммуникации.
               +moreBtn('/about-company', "Больше о нас")
         .fulpage__slider-pagination.swiper-pagination
-        //- .fulpage__slider-pagination.swiper-pagination
-        //-   .fulpage__slider-bullet.fulpage__slider-bullet-active.swiper-pagination-bullet(data-bullet-index=0)
-        //-     span.bullet-content С
-        //-     .colored-circle
-        //-     .bullet-progress__little-circle
-        //-     svg.bullet-progress(width='220', height='220')
-        //-       circle.bullet-progress__circle(stroke='#fff', stroke-width='1', cx='104', cy='104', r='103', fill='transparent')
-        //-   .fulpage__slider-bullet.swiper-pagination-bullet(data-bullet-index=1)
-        //-     span.bullet-content С
-        //-     .colored-circle
-        //-     .bullet-progress__little-circle
-        //-     svg.bullet-progress(width='220', height='220')
-        //-       circle.bullet-progress__circle(stroke='#fff', stroke-width='1', cx='104', cy='104', r='103', fill='transparent')
-        //-   .fulpage__slider-bullet.swiper-pagination-bullet(data-bullet-index=2)
-        //-     span.bullet-content П
-        //-     .colored-circle
-        //-     .bullet-progress__little-circle
-        //-     svg.bullet-progress(width='220', height='220')
-        //-       circle.bullet-progress__circle(stroke='#fff', stroke-width='1', cx='104', cy='104', r='103', fill='transparent')
       .fullpage-block__content
         h1.fullpage-block__title
           p.first-line
@@ -107,7 +91,7 @@ block content
         .row.justify-content-between
           .col-2.ps-0.d-none.d-xxl-block
             .news__content-img(data-scroll)
-              img(src="assets/images/news.jpg", alt="news")
+              img(src="assets/images/news.jpg", alt="news", data-scroll, data-scroll-speed="-1")
           .col-8.col-xxl-6.px-0
             ul.news__content-block.news__items.d-flex.justify-content-between(data-scroll)
               +newsItem(

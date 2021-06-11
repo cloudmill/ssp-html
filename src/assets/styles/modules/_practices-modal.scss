@@ -122,6 +122,19 @@ $practices-modal-bg-color-2: #bbdcf9;
     flex-direction: column;
     margin: 60px 0;
 
+    &:hover {
+
+      .link {
+        color: $color-6;
+        &::before {
+          width: 100%;
+          left: 0;
+          background: $color-6;
+          @include transition();
+        }
+      }
+    }
+
     &-1 {
       @include transition($delay: 0.1s);
     }

@@ -43,13 +43,11 @@ $(() => {
   if (!loader.hasClass("hidden")) {
     const loaderDuration = 1500;
 
-    // $("body").css("overflow", "hidden");
-
     circle.css("strokeDasharray", `${circumference} ${circumference}`);
     circle.css("strokeDashoffset", circumference);
     circle.css(
       "transition",
-      `stroke-dashoffset ${loaderDuration}ms cubic-bezier(0.45, 0, 0.55, 1)`
+      `stroke-dashoffset ${loaderDuration}ms cubic-bezier(0.65, 0, 0.35, 1)`
     );
     circle.css("display", "block");
 
@@ -61,12 +59,15 @@ $(() => {
       setTimeout(() => {
         $('body').addClass('loaded');
 
-        // $("body").css("overflow", "auto");
-
         $(".loader").addClass("hidden");
 
-        // window.fullPageSlider.update();
-        // window.fullPageSlider.autoplay.start();
+        if (window.fullPageSlider) {
+          window.fullPageSlider.slides.forEach((slide) => {
+            slide.classList.remove('swiper-slide-active');
+          });
+          window.fullPageSlider.update();
+          window.fullPageSlider.autoplay.start();
+        }
 
       }, loaderDuration);
     }
@@ -75,12 +76,9 @@ $(() => {
       preloaderClose();
     }, 10);
   } else {
-    // $("body").css("overflow", "hidden");
 
     setTimeout(() => {
       $('body').addClass('loaded');
-
-      // $("body").css("overflow", "auto");
 
     }, 500);
   }

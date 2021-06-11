@@ -188,7 +188,7 @@ block content
           include ../partials/_header.pug
           each img in header.imgs
             .practices__header-img
-              img(src= img.src, alt= header.title)
+              img(src= img.src, alt= header.title, data-scroll, data-scroll-speed="-1")
           .practices__header-content
             h1.practices__header-title
               span.practices__header-title-span(data-scroll)= header.title
@@ -270,7 +270,7 @@ block content
           .col-8.col-lg-7.col-xl-6
             ul.practices__services-accordion
               each item,i in accordion
-                li.practices__services-accordion-item.accordion-item.fadeInUp(class = i == 3 ? "active" : "" data-scroll)
+                li.practices__services-accordion-item.accordion-item.fadeInUp(class = i == 3 ? "active" : "", data-scroll)
                   .accordion-item__trigger
                     span.accordion-item__trigger-number= (i + 1)
                     p.accordion-item__trigger-title= item.title
@@ -279,6 +279,7 @@ block content
                   include ../components/_accordion-content.pug
 
     .practices__manager(data-scroll-section)
+      .practices__manager-bg(data-scroll, data-scroll-speed="-1")
       .practices__feedback-modal
         .practices__feedback-modal-close
           img.svg(src="assets/images/icons/close.svg", alt="close")

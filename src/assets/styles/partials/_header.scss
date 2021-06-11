@@ -51,9 +51,19 @@
   }
 
   .link::before {
-    @include transition($duration: 0.9s);
+    // @include transition($duration: 0.9s);
     background: $color-1;
   }
+
+  .practices-link {
+    &:hover {
+      .link::before {
+        width: 100%;
+        left: 0;
+        @include transition();
+      }
+    }
+    }
 
   &.active {
     .mobile-menu {
@@ -64,6 +74,10 @@
   &.fixed {
     position: fixed;
     animation: headerIn 0.6s $timing;
+  }
+
+  &.hidden {
+    transform: translateY(-100%);
   }
 
   &.scrolled,
@@ -159,8 +173,9 @@
               }
 
               &:nth-child(2) {
-                width: 10px;
-                height: 10px;
+                // width: 10px;
+                // height: 10px;
+                transform: scale(1.6);
               }
 
               &:last-child {

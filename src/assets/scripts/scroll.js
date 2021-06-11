@@ -23,8 +23,8 @@ setTimeout(() => {
     reloadOnContextChange: true,
     resetNativeScroll: false,
     scrollbarContainer: document.querySelector('[data-scroll-container]'),
-    scrollbarClass: "c-scrollbar",
-    scrollingClass: "has-scroll-scrolling",
+    scrollbarClass: 'c-scrollbar',
+    scrollingClass: 'has-scroll-scrolling',
   });
 
   window.scroller = scroll;
@@ -35,9 +35,14 @@ setTimeout(() => {
       // console.log('down');
 
       if (!headerParent.contains(header)) {
-        headerParent.prepend(header);
         header.classList.remove('fixed');
         header.classList.remove('scrolled');
+        header.classList.add('hidden');
+        setTimeout(() => {
+          headerParent.prepend(header);
+          header.classList.remove('hidden');
+        }, 600);
+
       }
     } else {
       // console.log('up');
@@ -54,7 +59,6 @@ setTimeout(() => {
         header.classList.remove('fixed');
         header.classList.remove('scrolled');
 
-
         setTimeout(() => {
           headerParent.prepend(header);
         }, 600);
@@ -63,6 +67,7 @@ setTimeout(() => {
 
     initialScroll = e.scroll.y;
   });
+
 }, 1500);
 
 document.body.onload = () => {

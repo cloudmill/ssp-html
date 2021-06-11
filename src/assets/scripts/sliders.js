@@ -93,7 +93,7 @@ const practicesSlider = new Swiper(".practices__slider", {
 
 const commandSlider = new Swiper(".command__slider", {
   loop: true,
-  loopedSlides: 3,
+  // loopedSlides: 3,
   initialSlide: 0,
   effect: "fade",
   fadeEffect: {
@@ -201,107 +201,8 @@ const fullPageSliderSettings = {
   }
 };
 
-setTimeout(() => {
-  const fullPageSlider = new Swiper(".fulpage__slider", fullPageSliderSettings);
-  // fullPageSlider.autoplay.stop();
+const fullPageSlider = new Swiper(document.querySelector(".fulpage__slider"), fullPageSliderSettings);
+if (fullPageSlider.el) {
+  fullPageSlider.autoplay.stop();
   window.fullPageSlider = fullPageSlider;
-}, 1500);
-
-// const fullPageSliderSettings = {
-//   loop: true,
-//   effect: "fade",
-//   fadeEffect: {
-//     crossFade: false
-//   },
-//   speed: 1,
-//   simulateTouch: false,
-
-//   autoplay: {
-//     delay: 5000,
-//     disableOnInteraction: false,
-//   },
-//   on: {
-//     slideChange: function() {
-
-//       if (isAnimationDisable && this.activeIndex === 2) {
-//         isAnimationDisable = false;
-
-//         this.slides.forEach(slide => {
-//           const elems = slide.querySelectorAll('.is-first-load');
-
-//           elems.forEach(el => {
-//             el.classList.remove('is-first-load');
-//           });
-//         });
-//       }
-
-//     }
-//   }
-// };
-
-// setTimeout(() => {
-//   const fullPageSlider = new Swiper(".fulpage__slider", fullPageSliderSettings);
-
-//   fullPageSlider.on("slideChangeTransitionStart", function () {
-//     activateBullet(fullPageSlider.realIndex);
-//   });
-
-//   $(".fulpage__slider-bullet").on("click", (e) => {
-//     let bullet;
-//     if ($(e.target).hasClass("fulpage__slider-bullet")) {
-//       bullet = e.target;
-//     } else {
-//       bullet = e.target.closest(".fulpage__slider-bullet");
-//     }
-
-//     const index = $(bullet).data("bulletIndex");
-//     activateBullet(index);
-//   });
-
-//   function activateBullet(slideIndex) {
-//     $(".fulpage__slider-bullet").each(function (index, element) {
-//       if (index === slideIndex) {
-//         $(element).addClass("fulpage__slider-bullet-active");
-//         $(element).addClass("fulpage__slider-bullet-filling");
-//         setTimeout(() => {
-//           fillingCircle($(element).find(".bullet-progress__circle"));
-//           $(element).find(".bullet-progress__little-circle").css({'transform': 'rotate(360deg)'});
-//         }, 600);
-//         return;
-//       }
-//       if (
-//         $(element).hasClass("fulpage__slider-bullet-active") ||
-//         $(element).hasClass("fulpage__slider-bullet-filling")
-//       ) {
-//         $(element).removeClass("fulpage__slider-bullet-active");
-//         $(element).removeClass("fulpage__slider-bullet-filling");
-//         setTimeout(() => {
-//           clearCircle($(element).find(".bullet-progress__circle"));
-//           $(element).find(".bullet-progress__little-circle").css({'transform': 'rotate(0deg)'});
-//         }, 600);
-//       }
-//     });
-
-//     switchSlide(slideIndex);
-//   }
-
-//   function switchSlide(currentSlide) {
-//     fullPageSlider.slideToLoop(currentSlide, 600, true);
-//     fillingCircle();
-//   }
-// }, 1500);
-
-// function initialCircles(circles) {
-//   $(circles).each(function (index, circle) {
-//     $(circle).css("strokeDasharray", `${circumference} ${circumference}`);
-//     $(circle).css("strokeDashoffset", circumference);
-//   });
-// }
-
-// function clearCircle(circle) {
-//   $(circle).css("strokeDashoffset", circumference);
-// }
-
-// function fillingCircle(circle) {
-//   $(circle).css("strokeDashoffset", 0);
-// }
+}
