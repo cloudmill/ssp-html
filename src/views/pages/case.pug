@@ -73,8 +73,8 @@ block content
     .case__content(data-scroll-section)
       .row
         .col-2.d-none.d-lg-block
-          .left-block#target
-            .case__share.fadeInUp(data-scroll data-scroll-sticky data-scroll-target="#target")
+          .left-block.fadeInUp#target(data-scroll)
+            .case__share(data-scroll data-scroll-sticky data-scroll-target="#target")
               +beforeBtn("/cases", "Все кейсы")
               .share
                 p.share__title Поделиться новостью
