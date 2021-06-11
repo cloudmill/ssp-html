@@ -22,6 +22,9 @@ setTimeout(() => {
     },
     reloadOnContextChange: true,
     resetNativeScroll: false,
+    scrollbarContainer: document.querySelector('[data-scroll-container]'),
+    scrollbarClass: "c-scrollbar",
+    scrollingClass: "has-scroll-scrolling",
   });
 
   window.scroller = scroll;
