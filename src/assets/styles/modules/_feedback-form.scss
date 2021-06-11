@@ -64,21 +64,6 @@
           color: $color-1;
         }
       }
-
-      .error {
-        position: absolute;
-        top: 80%;
-        color: $color-5;
-        font-size: 12px;
-        line-height: 140%;
-        opacity: 0;
-        @include transition();
-
-        &.active {
-          top: calc(100% + 5px);
-          opacity: 1;
-        }
-      }
     }
 
     textarea {
@@ -106,13 +91,25 @@
     }
   }
 
+  &-agree {
+    &.parsley-error {
+      color: red !important;
+      border-color: red !important;
+    }
+  }
+
   &__submit {
     display: flex;
     align-items: center;
+    position: relative;
 
     @media (max-width: 768px) {
       flex-direction: column-reverse;
       align-items: start;
+    }
+
+    .parsley-errors-list {
+      display: none;
     }
 
     .submit-btn {

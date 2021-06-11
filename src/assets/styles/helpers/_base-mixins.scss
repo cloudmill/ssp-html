@@ -1,3 +1,14 @@
 @mixin transition($property: all, $duration: 0.6s, $animation: cubic-bezier(0.45, 0, 0.55, 1), $delay: 0s) {
   transition: $property $duration $animation $delay;
 }
+
+.parsley-errors-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: red;
+  padding-top: 5px;
+  li {
+    font-size: 12px;
+  }
+}

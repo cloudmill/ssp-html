@@ -3,6 +3,11 @@ mixin moreBtn(href, text)
     img(src="assets/images/icons/arrow-right.svg", alt="more")
     span= text
 
+mixin moreBtnSubmit(text)
+  button.more-btn(type="submit")&attributes(attributes)
+    img(src="assets/images/icons/arrow-right.svg", alt="more")
+    span= text
+
 mixin beforeBtn(href, text)
   a.before-btn(href=href)
     img(src="assets/images/icons/arrow-right.svg", alt="more")
@@ -89,24 +94,20 @@ mixin feedbackForm(title, agree_id)
     h2.feedback__title.active
       span.feedback__title-span(data-scroll)= title
     h2.feedback__title Мы приняли ваше сообщение и ответим вам в ближайшее время.
-    form.feedback__form
-      .feedback-field.feedback-name
-        input(type="name", name="name", placeholder="Имя*", required)
-        p.error Поле не заполнено
-      .feedback-field.feedback-email
-        input(type="email", name="email", placeholder="E-mail")
-        p.error Поле не заполнено
-      .feedback-field.feedback-phone
-        input(type="phone", name="phone", placeholder="Телефон*", data-mask="phone", required)
-        p.error Поле не заполнено
-      textarea(name="message", placeholder="Сообщение")
-    .feedback__submit
-      .submit-btn.active
-        +moreBtn("#", "Отправить")
-      .submit-btn
-        +moreBtn("#", "Отправить еще")
-      .feedback-agree
-        +agreeCheckbox(agree_id)
+    form(data-type="feedback-form")
+      .feedback__form
+        .feedback-field.feedback-name
+          input(type="name", name="name", placeholder="Имя*", required)
+        .feedback-field.feedback-email
+          input(type="email", name="email", placeholder="E-mail")
+        .feedback-field.feedback-phone
+          input(type="phone", name="phone", placeholder="Телефон*", data-mask="phone", required)
+        textarea(name="message", placeholder="Сообщение")
+      .feedback__submit
+        .submit-btn.active
+          +moreBtnSubmit("Отправить")
+        .feedback-agree
+          +agreeCheckbox(agree_id)
 
 mixin caseItem(caseItem, isOtherCases)
   li.case-item(class = isOtherCases ? "small" : "" )&attributes(attributes)
