@@ -65,8 +65,8 @@ $(() => {
 
         $(".loader").addClass("hidden");
 
-        window.fullPageSlider.update();
-        window.fullPageSlider.autoplay.start();
+        // window.fullPageSlider.update();
+        // window.fullPageSlider.autoplay.start();
 
       }, loaderDuration);
     }

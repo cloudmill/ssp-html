@@ -201,9 +201,11 @@ const fullPageSliderSettings = {
   }
 };
 
-const fullPageSlider = new Swiper(".fulpage__slider", fullPageSliderSettings);
-fullPageSlider.autoplay.stop();
-window.fullPageSlider = fullPageSlider;
+setTimeout(() => {
+  const fullPageSlider = new Swiper(".fulpage__slider", fullPageSliderSettings);
+  // fullPageSlider.autoplay.stop();
+  window.fullPageSlider = fullPageSlider;
+}, 1500);
 
 // const fullPageSliderSettings = {
 //   loop: true,
