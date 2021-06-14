@@ -184,7 +184,7 @@ $contacts-bg-img: url("../../assets/images/contacts/contacts-bg.png");
 
         &.is-inview {
           visibility: visible;
-          animation: textIn 0.6s $timing;
+          animation: textIn 1.2s $timing;
         }
       }
 
@@ -206,7 +206,7 @@ $contacts-bg-img: url("../../assets/images/contacts/contacts-bg.png");
 
         &.is-inview {
           visibility: visible;
-          animation: textIn 0.6s $timing;
+          animation: textIn 1.2s $timing;
         }
       }
 
@@ -253,7 +253,7 @@ $contacts-bg-img: url("../../assets/images/contacts/contacts-bg.png");
 
           &.is-inview {
             visibility: visible;
-            animation: textIn 0.6s $timing;
+            animation: textIn 1.2s $timing;
           }
         }
 

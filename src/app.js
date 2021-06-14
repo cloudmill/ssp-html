@@ -29,6 +29,7 @@ $(() => {
   }
 
   const loader = $(".loader"),
+    header = $('.header'),
     progress = loader.find(".loader-progress"),
     circle = progress.find(".loader-progress__circle"),
     radius = +circle.attr("r"),
@@ -60,6 +61,10 @@ $(() => {
         $('body').addClass('loaded');
 
         $(".loader").addClass("hidden");
+
+        setTimeout(() => {
+          header.removeClass('is-first-load');
+        }, 1200);
 
         if (window.fullPageSlider) {
           window.fullPageSlider.slides.forEach((slide) => {

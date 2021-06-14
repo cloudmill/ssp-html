@@ -10,11 +10,11 @@
   align-items: center;
   background: $color-3;
   transform: translateY(0);
-  @include transition($property: transform);
+  @include transition($property: transform, $duration: 1.2s);
 
   &.hidden {
     transform: translateY(-100%);
-    @include transition($property: transform);
+    @include transition($property: transform, $duration: 1.2s);
   }
 
   &-title {

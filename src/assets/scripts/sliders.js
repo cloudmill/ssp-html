@@ -73,8 +73,8 @@ const practicesSlider = new Swiper(".practices__slider", {
   loop: true,
   loopedSlides: 3,
   spaceBetween: 20,
-  allowSlidePrev: false,
-  watchOverflow: true,
+  // allowSlidePrev: false,
+  // watchOverflow: true,
   initialSlide: 0,
   speed: 1000,
   simulateTouch: false,
@@ -82,13 +82,32 @@ const practicesSlider = new Swiper(".practices__slider", {
   breakpoints: {
     768: {
       simulateTouch: true,
-      allowSlidePrev: true,
+      // allowSlidePrev: true,
     },
   },
 
   navigation: {
     nextEl: ".swiper-button-next",
   },
+
+  on: {
+    beforeTransitionStart: function() {
+      const activeSlide = this.el.querySelector('.swiper-slide-active');
+      const wrapper = this.el.querySelector('.swiper-wrapper');
+
+      if (window.matchMedia('(min-width: 769px)').matches) {
+
+        if (this.realIndex === 0 && !activeSlide.classList.contains('swiper-slide-duplicate')) {
+          wrapper.style.transitionDelay = '0s';
+        } else {
+          wrapper.style.transitionDelay = '0.6s';
+        }
+      } else {
+        wrapper.style.transitionDelay = '0s';
+      }
+
+    },
+  }
 });
 
 const commandSlider = new Swiper(".command__slider", {
@@ -122,6 +141,11 @@ const updateBullet = ($this) => {
       littleCircle.style.transform = 'rotate(360deg)';
 
       circle.style.strokeDashoffset = '0px';
+
+      $this.pagination.bullets.forEach(bullet => {
+        bullet.querySelector('.bullet-progress__little-circle')
+            .classList.remove('is-first-load');
+      });
     } else {
       littleCircle.style.transitionDuration = '0s';
       littleCircle.style.transform = 'rotate(0deg)';
@@ -144,7 +168,7 @@ const fullPageSliderSettings = {
   simulateTouch: false,
 
   autoplay: {
-    delay: 5600,
+    delay: 6200,
     disableOnInteraction: false,
   },
   pagination: {
@@ -157,7 +181,7 @@ const fullPageSliderSettings = {
             ${letters[index]}
           </span>
           <div class="colored-circle"></div>
-          <div class="bullet-progress__little-circle" style="transform: rotate(0deg);"></div>
+          <div class="bullet-progress__little-circle is-first-load" style="transform: rotate(0deg);"></div>
           <svg class="bullet-progress" width="220" height="220">
             <circle class="bullet-progress__circle" stroke="#fff" stroke-width="1" cx="104" cy="104" r="103" fill="transparent" style="
               stroke-dashoffset: 647.168px;

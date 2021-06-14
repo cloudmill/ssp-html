@@ -46,7 +46,7 @@ $fullpage-slide-bg-imgs: (
       z-index: 1;
 
       &-wrapper {
-        transition-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+        transition-timing-function: $timing;
       }
 
       &-slide {
@@ -57,11 +57,11 @@ $fullpage-slide-bg-imgs: (
 
         &.swiper-slide-active {
           .fulpage__slider-slide-bg {
-            animation: slideImgAnimate 0.6s $timing;
+            animation: slideImgAnimate 1.2s $timing;
             &-wrap {
-              animation: slideChange 0.6s $timing;
+              animation: slideChange 1.2s $timing;
               &.is-first-load {
-                animation: textIn-10 0.6s $timing;
+                animation: textIn-10 1.2s $timing;
 
                 .fulpage__slider-slide-bg {
                   animation: none;
@@ -71,10 +71,10 @@ $fullpage-slide-bg-imgs: (
 
           }
           .fulpage__slider-title-span {
-            animation: textIn 0.6s $timing;
+            animation: textIn 1.2s $timing;
             transform: translateY(0%);
             // animation-delay: 0.6s;
-            transition-delay: 0.6s;
+            transition-delay: 1.2s;
 
             &.is-first-load {
               animation-delay: 0s;
@@ -82,9 +82,9 @@ $fullpage-slide-bg-imgs: (
             }
           }
           .fullpage__slider-description {
-            animation: fadeInUp 0.6s $timing;
+            animation: fadeInUp 1.2s $timing;
             // animation-delay: 0.6s;
-            transition-delay: 0.6s;
+            transition-delay: 1.2s;
             transform: translateY(0%);
             opacity: 1;
 
@@ -123,7 +123,7 @@ $fullpage-slide-bg-imgs: (
             overflow: hidden;
 
             will-change: transform;
-            animation: slideChangeOut 0.6s $timing;
+            animation: slideChangeOut 1.2s $timing;
 
             &-parallax {
               position: absolute;
@@ -147,7 +147,7 @@ $fullpage-slide-bg-imgs: (
 
           &-span {
             display: block;
-            animation: textOut 0.6s $timing;
+            animation: textOut 1.2s $timing;
             transform: translateY(100%);
             transition: transform, opacity 0s;
           }
@@ -169,7 +169,7 @@ $fullpage-slide-bg-imgs: (
           font-size: 24px;
           line-height: 140%;
 
-          animation: fadeOutUp 0.6s $timing;
+          animation: fadeOutUp 1.2s $timing;
           transform: translateY(50%);
           transition: transform, opacity 0s;
           opacity: 0;
@@ -307,7 +307,7 @@ $fullpage-slide-bg-imgs: (
                 border-radius: 50%;
                 background: #fff;
                 opacity: 0;
-                animation-delay: 0.6s;
+                animation-delay: 1.2s;
                 animation-duration: 0.1s;
                 // @include transition($duration: 0.1s, $delay: 0.6s);
               }
@@ -315,7 +315,7 @@ $fullpage-slide-bg-imgs: (
 
             &__circle {
               opacity: 0;
-              animation-delay: 0.6s;
+              animation-delay: 1.2s;
               animation-duration: 0.1s;
               // @include transition($duration: 0.1s, $delay: 0.6s);
             }
@@ -352,6 +352,12 @@ $fullpage-slide-bg-imgs: (
                   animation-name: fadeIn;
                   animation-fill-mode: both;
                 }
+
+                &.is-first-load {
+                  &::before {
+                    display: none;
+                  }
+                }
               }
             }
           }
@@ -363,14 +369,14 @@ $fullpage-slide-bg-imgs: (
                 @include transition(
                   $duration: 5s,
                   $property: transform,
-                  $delay: 0.6s
+                  $delay: 1.2s
                 );
               }
               &__circle {
                 @include transition(
                   $duration: 5s,
                   $property: stroke-dashoffset,
-                  $delay: 0.6s
+                  $delay: 1.2s
                 );
 
               }
@@ -394,6 +400,12 @@ $fullpage-slide-bg-imgs: (
         top: 37px;
         left: 40px;
         z-index: 1;
+        visibility: hidden;
+
+        &.is-inview {
+          visibility: visible;
+          animation: fadeInUp 1.2s $timing;
+        }
 
         @media (max-width: 1200px) {
           top: 20px;
@@ -496,7 +508,7 @@ $fullpage-slide-bg-imgs: (
 
       &.is-inview {
         visibility: visible;
-        animation: fadeInUp-10 0.6s $timing;
+        animation: fadeInUp-10 1.2s $timing;
       }
 
       @media (max-width: 1400px) {
@@ -529,7 +541,7 @@ $fullpage-slide-bg-imgs: (
       }
 
       &-wrapper {
-        transition-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+        transition-timing-function: $timing;
         transition-delay: 0.6s;
         overflow: visible;
 
@@ -609,7 +621,7 @@ $fullpage-slide-bg-imgs: (
         }
 
         .swiper-slide-prev {
-          animation: prevSlide 1.2s cubic-bezier(0.45, 0, 0.55, 1);
+          animation: prevSlide 1.2s $timing;
 
           @media (max-width: 768px) {
             animation: none;
@@ -617,7 +629,7 @@ $fullpage-slide-bg-imgs: (
         }
 
         .swiper-slide-active {
-          animation: activeSlide 1.2s cubic-bezier(0.45, 0, 0.55, 1);
+          animation: activeSlide 1.2s $timing;
 
           @media (max-width: 768px) {
             animation: none;
@@ -733,7 +745,7 @@ $fullpage-slide-bg-imgs: (
 
         &.is-inview {
           visibility: visible;
-          animation: textIn 0.6s $timing;
+          animation: textIn 1.2s $timing;
         }
       }
 
@@ -769,7 +781,7 @@ $fullpage-slide-bg-imgs: (
 
           &.is-inview {
             visibility: visible;
-            animation: textIn 0.6s $timing;
+            animation: textIn 1.2s $timing;
           }
         }
 
@@ -788,7 +800,7 @@ $fullpage-slide-bg-imgs: (
 
         &.is-inview {
           visibility: visible;
-          animation: fadeIn 0.6s $timing;
+          animation: fadeIn 1.2s $timing;
         }
 
         @media (max-width: 1250px) {
@@ -853,7 +865,7 @@ $fullpage-slide-bg-imgs: (
 
         &.is-inview {
           visibility: visible;
-          animation: fadeInLeft 0.6s $timing;
+          animation: fadeInLeft 1.2s $timing;
         }
 
         @media (max-width: 768px) {
