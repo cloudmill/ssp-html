@@ -193,7 +193,7 @@
         height: 100%;
 
         @media (max-width: 1399px) {
-          padding: 80px 0 0;
+          padding: 140px 0 0;
         }
 
         @media (max-width: 860px) {
@@ -284,9 +284,11 @@
         }
 
         &-block {
+          position: relative;
           align-self: flex-end;
           width: 83%;
-          margin-top: 95px;
+          // margin-top: 95px;
+          margin-top: 140px;
           padding-top: 20px;
           border-top: 1px solid $color-1;
           display: flex;
@@ -297,6 +299,18 @@
           opacity: 0;
           transition: transform, opacity 0s;
 
+          .more-btn {
+            position: absolute;
+            left: 0;
+            top: -100px;
+            padding-left: 22px;
+
+            @media (max-width: 768px) {
+              top: -60px;
+              padding-left: 16px;
+            }
+          }
+
           @media (max-width: 1399px) {
             margin-top: 0;
             width: 100%;
@@ -304,13 +318,14 @@
           }
 
           @media (max-width: 860px) {
-            margin-top: 20px;
+            margin-top: 140px;
           }
 
           @media (max-width: 768px) {
             padding-top: 10px;
             flex-direction: column;
             justify-content: flex-start;
+            margin-top: 80px;
           }
 
           .position {

@@ -21,12 +21,16 @@ $(() => {
   require("Scripts/practices");
   require("Scripts/anonce");
   require("Scripts/practices-modal");
+  require("Scripts/modal");
   require("Scripts/gMapsAPI");
   require("Scripts/backend");
 
   if (isTouchDevice()) {
     document.body.classList.add('touch-device');
   }
+
+
+const practicesHeaderImg = document.querySelector('.practices__header-img img');
 
   const loader = $(".loader"),
     header = $('.header'),
@@ -72,6 +76,10 @@ $(() => {
           });
           window.fullPageSlider.update();
           window.fullPageSlider.autoplay.start();
+
+          if (practicesHeaderImg) {
+            practicesHeaderImg.classList.add('is-inview');
+          }
         }
 
       }, loaderDuration);

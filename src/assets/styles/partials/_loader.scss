@@ -10,6 +10,7 @@
   align-items: center;
   background: $color-3;
   transform: translateY(0);
+  overflow: hidden;
   @include transition($property: transform, $duration: 1.2s);
 
   &.hidden {

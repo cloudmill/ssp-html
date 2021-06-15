@@ -186,9 +186,11 @@ block content
       if header.className == "indebtedness"
         .practices__header(class= header.className data-scroll-section data-header-parent)
           include ../partials/_header.pug
+
+          .practices__header-bg
           each img in header.imgs
-            .practices__header-img
-              img(src= img.src, alt= header.title, data-scroll, data-scroll-speed="-1")
+            .practices__header-img(data-scroll, data-scroll-speed="-1")
+              img.img.fadeIn(src= img.src, alt= header.title, data-scroll)
           .practices__header-content
             h1.practices__header-title
               span.practices__header-title-span(data-scroll)= header.title
@@ -280,10 +282,7 @@ block content
 
     .practices__manager(data-scroll-section)
       .practices__manager-bg(data-scroll, data-scroll-speed="-1")
-      .practices__feedback-modal
-        .practices__feedback-modal-close
-          img.svg(src="assets/images/icons/close.svg", alt="close")
-        +feedbackForm("Задать вопрос руководителю практики", "feedback-agree-modal")
+
 
       .practices__manager-content
         .row.justify-content-between
@@ -309,7 +308,7 @@ block content
                   a(href="#") Telegram
                   a(href="#") WhatsApp
               .practices__manager-bottom.fadeInUp(data-scroll)
-                +moreBtn("#", "Задать вопрос")
+                +moreBtn("#", "Задать вопрос")(data-modal-btn="feedback")
                 .newtworks.d-none.d-lg-flex
                   a(href="#") Telegram
                   a(href="#") WhatsApp
@@ -331,3 +330,8 @@ block content
 
     .footer__wrap(data-scroll-section)
       include ../partials/_footer.pug
+
+  .modal(data-modal="feedback")
+    .modal__close(data-modal-close="true")
+      img.svg(src="assets/images/icons/close.svg", alt="close")
+    +feedbackForm("Задать вопрос руководителю практики", "feedback-agree-modal")

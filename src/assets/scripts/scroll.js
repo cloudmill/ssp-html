@@ -2,7 +2,6 @@
 import LocomotiveScroll from './locomotive-scroll';
 
 let scroll;
-let initialScroll = 0;
 const anonce = document.querySelector('.anonce');
 const offset = anonce ? anonce.offsetHeight : 0;
 const header = document.querySelector('.header');
@@ -11,7 +10,7 @@ const headerParent = header.closest('[data-header-parent]');
 
 setTimeout(() => {
   scroll = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
+    el: document.querySelector('main[data-scroll-container]'),
     smooth: true,
     lerp: 0.05,
     smartphone: {
@@ -20,6 +19,7 @@ setTimeout(() => {
     tablet: {
       smooth: false,
     },
+    getDirection: true,
     reloadOnContextChange: true,
     resetNativeScroll: false,
     scrollbarContainer: document.querySelector('[data-scroll-container]'),
@@ -31,41 +31,54 @@ setTimeout(() => {
 
   scroll.on('scroll', (e) => {
 
-    if (initialScroll < e.scroll.y) {
+    if (e.direction === 'down') {
       // console.log('down');
 
-      if (!headerParent.contains(header)) {
-        header.classList.remove('fixed');
-        header.classList.remove('scrolled');
-        header.classList.add('hidden');
-        setTimeout(() => {
-          headerParent.prepend(header);
-          header.classList.remove('hidden');
-        }, 600);
+      header.classList.remove('fixed');
+      header.classList.remove('scrolled');
 
+      if (e.scroll.y >= header.offsetHeight + offset) {
+        header.classList.add('hidden');
+        if (main.firstElementChild !== header) {
+          main.prepend(header);
+        }
       }
+
     } else {
       // console.log('up');
 
-      if (!(main.firstElementChild === header) && e.scroll.y !== (0 + offset)) {
-        main.prepend(header);
+      if (main.firstElementChild === header) {
         header.classList.add('fixed');
         header.classList.add('scrolled');
+        header.classList.remove('hidden');
       }
+
+      if (!offset) {
+        if (e.scroll.y <= 25) {
+          if (!headerParent.contains(header)) {
+            header.classList.remove('fixed');
+            header.classList.remove('scrolled');
+
+            if (e.scroll.y <= 1) {
+              headerParent.prepend(header);
+            }
+          }
+        }
+      } else {
+        if (e.scroll.y <= 0 + offset) {
+          if (!headerParent.contains(header)) {
+            setTimeout(() => {
+              header.classList.remove('fixed');
+              header.classList.remove('scrolled');
+            }, 0);
+
+            headerParent.prepend(header);
+          }
+        }
+      }
+
     }
 
-    if (e.scroll.y <= (40 + offset)) {
-      if (!headerParent.contains(header)) {
-        header.classList.remove('fixed');
-        header.classList.remove('scrolled');
-
-        setTimeout(() => {
-          headerParent.prepend(header);
-        }, 600);
-      }
-    }
-
-    initialScroll = e.scroll.y;
   });
 
 }, 1500);

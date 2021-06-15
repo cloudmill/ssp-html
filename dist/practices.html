@@ -138,7 +138,8 @@
 								</div>
 							</div>
 						</header>
-						<div class="practices__header-img"><img src="assets/images/practices/practice-7.png" alt="Управление<br>финансовой<br>задолженностью" data-scroll data-scroll-speed="-1"></div>
+						<div class="practices__header-bg"></div>
+						<div class="practices__header-img" data-scroll data-scroll-speed="-1"><img class="img fadeIn" src="assets/images/practices/practice-7.png" alt="Управление<br>финансовой<br>задолженностью" data-scroll></div>
 						<div class="practices__header-content">
 							<h1 class="practices__header-title"><span class="practices__header-title-span" data-scroll>Управление<br>финансовой<br>задолженностью</span></h1><span class="practices__header-number"><span class="practices__header-number-span" data-scroll>07</span></span>
 						</div>
@@ -353,26 +354,6 @@
 					</div>
 					<div class="practices__manager" data-scroll-section>
 						<div class="practices__manager-bg" data-scroll data-scroll-speed="-1"></div>
-						<div class="practices__feedback-modal">
-							<div class="practices__feedback-modal-close"><img class="svg" src="assets/images/icons/close.svg" alt="close"></div>
-							<div class="feedback">
-								<h2 class="feedback__title active"><span class="feedback__title-span" data-scroll="data-scroll">Задать вопрос руководителю практики</span></h2>
-								<h2 class="feedback__title">Мы приняли ваше сообщение и ответим вам в ближайшее время.</h2>
-								<form data-type="feedback-form">
-									<div class="feedback__form">
-										<div class="feedback-field feedback-name"><input type="name" name="name" placeholder="Имя*" required="required" /></div>
-										<div class="feedback-field feedback-email"><input type="email" name="email" placeholder="E-mail" /></div>
-										<div class="feedback-field feedback-phone"><input type="phone" name="phone" placeholder="Телефон*" data-mask="phone" required="required" /></div><textarea name="message" placeholder="Сообщение"></textarea>
-									</div>
-									<div class="feedback__submit">
-										<div class="submit-btn active"><button class="more-btn" type="submit"><img src="assets/images/icons/arrow-right.svg" alt="more" /><span>Отправить</span></button></div>
-										<div class="feedback-agree"><input type="checkbox" name="agree" id="feedback-agree-modal" required="required" /><label for="feedback-agree-modal">Согласен на обработку персональных данных в соответствии с <a class="link" href="#">политикой конфиденциальности</a>
-												<p class="error">Остутствует согласие на обработку персональных данных</p>
-											</label></div>
-									</div>
-								</form>
-							</div>
-						</div>
 						<div class="practices__manager-content">
 							<div class="row justify-content-between">
 								<div class="col-6 col-sm-3 col-md-2">
@@ -396,7 +377,7 @@
 										<div class="practices__manager-links fadeInUp" data-scroll><a class="email" href="mailto:nea@ssp-consult.ru">nea@ssp-consult.ru</a>
 											<div class="newtworks d-lg-none"><a href="#">Telegram</a><a href="#">WhatsApp</a></div>
 										</div>
-										<div class="practices__manager-bottom fadeInUp" data-scroll><a class="more-btn" href="#"><img src="assets/images/icons/arrow-right.svg" alt="more" /><span>Задать вопрос</span></a>
+										<div class="practices__manager-bottom fadeInUp" data-scroll><a class="more-btn" href="#" data-modal-btn="feedback"><img src="assets/images/icons/arrow-right.svg" alt="more" /><span>Задать вопрос</span></a>
 											<div class="newtworks d-none d-lg-flex"><a href="#">Telegram</a><a href="#">WhatsApp</a></div>
 										</div>
 									</div>
@@ -466,7 +447,7 @@
 							<div class="row justify-content-center">
 								<div class="col-8 col-lg-6">
 									<div class="feedback">
-										<h2 class="feedback__title active"><span class="feedback__title-span" data-scroll="data-scroll">Задать вопрос или запросить коммерческое предложение</span></h2>
+										<h2 class="feedback__title active">Задать вопрос или запросить коммерческое предложение</h2>
 										<h2 class="feedback__title">Мы приняли ваше сообщение и ответим вам в ближайшее время.</h2>
 										<form data-type="feedback-form">
 											<div class="feedback__form">
@@ -546,6 +527,26 @@
 						</footer>
 					</div>
 				</main>
+				<div class="modal" data-modal="feedback">
+					<div class="modal__close" data-modal-close="true"><img class="svg" src="assets/images/icons/close.svg" alt="close"></div>
+					<div class="feedback">
+						<h2 class="feedback__title active">Задать вопрос руководителю практики</h2>
+						<h2 class="feedback__title">Мы приняли ваше сообщение и ответим вам в ближайшее время.</h2>
+						<form data-type="feedback-form">
+							<div class="feedback__form">
+								<div class="feedback-field feedback-name"><input type="name" name="name" placeholder="Имя*" required="required" /></div>
+								<div class="feedback-field feedback-email"><input type="email" name="email" placeholder="E-mail" /></div>
+								<div class="feedback-field feedback-phone"><input type="phone" name="phone" placeholder="Телефон*" data-mask="phone" required="required" /></div><textarea name="message" placeholder="Сообщение"></textarea>
+							</div>
+							<div class="feedback__submit">
+								<div class="submit-btn active"><button class="more-btn" type="submit"><img src="assets/images/icons/arrow-right.svg" alt="more" /><span>Отправить</span></button></div>
+								<div class="feedback-agree"><input type="checkbox" name="agree" id="feedback-agree-modal" required="required" /><label for="feedback-agree-modal">Согласен на обработку персональных данных в соответствии с <a class="link" href="#">политикой конфиденциальности</a>
+										<p class="error">Остутствует согласие на обработку персональных данных</p>
+									</label></div>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
 		<script type="text/javascript" src="assets/styles.js"></script>

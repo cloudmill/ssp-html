@@ -1,6 +1,6 @@
-mixin moreBtn(href, text)
+mixin moreBtn(href, text, iconName='arrow-right')
   a.more-btn(href=href)&attributes(attributes)
-    img(src="assets/images/icons/arrow-right.svg", alt="more")
+    img(src=`assets/images/icons/${iconName}.svg`, alt="more")
     span= text
 
 mixin moreBtnSubmit(text)
@@ -91,8 +91,7 @@ mixin eventsSubscribe(is_detail)
 
 mixin feedbackForm(title, agree_id)
   .feedback
-    h2.feedback__title.active
-      span.feedback__title-span(data-scroll)= title
+    h2.feedback__title.active= title
     h2.feedback__title Мы приняли ваше сообщение и ответим вам в ближайшее время.
     form(data-type="feedback-form")
       .feedback__form
