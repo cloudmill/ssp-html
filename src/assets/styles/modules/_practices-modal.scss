@@ -10,7 +10,7 @@ $practices-modal-bg-color-2: #bbdcf9;
 .practices-modal {
   position: fixed;
   top: 0;
-  left: 0;
+  left: -100%;
   z-index: 20;
   background: $color-8;
   color: $color-7;
@@ -19,10 +19,11 @@ $practices-modal-bg-color-2: #bbdcf9;
   max-height: 100vh;
   overflow-y: auto;
   @include transition();
-  transform: translateX(-100%);
+  // transform: translateX(-100%);
 
   &.active {
-    transform: translateX(0);
+    // transform: translateX(0);
+    left: 0;
   }
 
   .zoom-hide-item {

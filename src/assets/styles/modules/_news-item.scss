@@ -50,21 +50,26 @@
   }
 
   &-themes {
-    margin: auto 0 40px;
+    margin: auto 0 35px;
     display: flex;
+    flex-wrap: wrap;
 
     .news__item-theme {
       display: flex;
       justify-content: center;
       align-items: center;
       margin-right: 10px;
+      margin-bottom: 5px;
+
+      flex: 0 0 auto;
+      max-width: 100%;
 
       @media (max-width: 768px) {
         margin-right: 5px;
       }
 
       &:last-child {
-        margin: 0;
+        margin-right: 0;
       }
     }
   }

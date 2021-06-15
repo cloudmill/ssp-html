@@ -3,29 +3,32 @@ import LocomotiveScroll from './locomotive-scroll';
 
 let scroll;
 const anonce = document.querySelector('.anonce');
+const loader = document.querySelector('.loader');
 const offset = anonce ? anonce.offsetHeight : 0;
 const header = document.querySelector('.header');
 const main = document.querySelector('[data-scroll-container]');
 const headerParent = header.closest('[data-header-parent]');
 
-setTimeout(() => {
-  scroll = new LocomotiveScroll({
-    el: document.querySelector('main[data-scroll-container]'),
-    smooth: true,
-    lerp: 0.05,
-    smartphone: {
-      smooth: false,
-    },
-    tablet: {
-      smooth: false,
-    },
-    getDirection: true,
-    reloadOnContextChange: true,
-    resetNativeScroll: false,
-    scrollbarContainer: document.querySelector('[data-scroll-container]'),
-    scrollbarClass: 'c-scrollbar',
-    scrollingClass: 'has-scroll-scrolling',
-  });
+const scrollOptions = {
+  el: document.querySelector('main[data-scroll-container]'),
+  smooth: true,
+  lerp: 0.05,
+  smartphone: {
+    smooth: false,
+  },
+  tablet: {
+    smooth: false,
+  },
+  getDirection: true,
+  reloadOnContextChange: true,
+  resetNativeScroll: false,
+  scrollbarContainer: document.querySelector('[data-scroll-container]'),
+  scrollbarClass: 'c-scrollbar',
+  scrollingClass: 'has-scroll-scrolling',
+};
+
+const initScroll = () => {
+  scroll = new LocomotiveScroll(scrollOptions);
 
   window.scroller = scroll;
 
@@ -81,7 +84,13 @@ setTimeout(() => {
 
   });
 
-}, 1500);
+};
+
+if (loader) {
+  setTimeout(initScroll, 1500);
+} else {
+  initScroll();
+}
 
 document.body.onload = () => {
   if (scroll) scroll.update();

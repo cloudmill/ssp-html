@@ -1,7 +1,9 @@
 extends ../layouts/master.pug
 
-//- block header
 
+
+block loader
+  include ../partials/_loader.pug
 
 block content
   main#main.index-main(data-scroll-container)
