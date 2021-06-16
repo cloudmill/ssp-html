@@ -3,7 +3,6 @@ import LocomotiveScroll from './locomotive-scroll';
 
 let scroll;
 const anonce = document.querySelector('.anonce');
-const loader = document.querySelector('.loader');
 const offset = anonce ? anonce.offsetHeight : 0;
 const header = document.querySelector('.header');
 const main = document.querySelector('[data-scroll-container]');
@@ -12,7 +11,7 @@ const headerParent = header.closest('[data-header-parent]');
 const scrollOptions = {
   el: document.querySelector('main[data-scroll-container]'),
   smooth: true,
-  lerp: 0.05,
+  lerp: 0.035,
   smartphone: {
     smooth: false,
   },
@@ -86,11 +85,18 @@ const initScroll = () => {
 
 };
 
-if (loader) {
-  setTimeout(initScroll, 1500);
-} else {
-  initScroll();
-}
+// if (loader) {
+//   setTimeout(initScroll, 1500);
+// } else {
+//   initScroll();
+
+//   setTimeout(() => scroll.update(), 1500);
+// }
+
+setTimeout(initScroll, 500);
+setTimeout(() => {
+  if (scroll) scroll.update();
+}, 1500);
 
 document.body.onload = () => {
   if (scroll) scroll.update();

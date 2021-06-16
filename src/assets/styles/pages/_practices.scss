@@ -632,118 +632,169 @@ $practices-header-bg-color: #9ac9d8;
         }
 
         &__content {
-          padding: 41px 0 80px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+          padding: 41px 101px 80px;
+          // display: flex;
+          // flex-direction: column;
+          // align-items: center;
 
           @media (max-width: 768px) {
-            padding: 0 0 40px;
+            padding: 0 30px 40px;
           }
 
-          &-top {
-            width: calc(100% / 6 * 4);
-            padding-left: 10px;
-            padding-right: 10px;
-            margin-left: -110px;
-            margin-right: -110px;
-            margin-bottom: 80px;
-
-            @media (max-width: 768px) {
-              width: 100%;
-              margin: 0 0 40px;
-              padding: 0 30px;
-            }
-
-            &-text {
-              padding-top: 40px;
-              border-top: 1px solid $color-1;
-              font-size: 18px;
-              line-height: 160%;
-
-              @media (max-width: 768px) {
-                padding-top: 20px;
-                font-size: 14px;
-              }
-            }
-          }
-
-          &-img {
+          hr {
+            margin: 0 auto 40px;
             width: 100%;
-            height: 470px;
-            padding: 0 100px;
+            max-width: 790px;
+
+            border: none;
+            color: $color-1;
+            background-color: $color-1;
+            height: 1px;
 
             @media (max-width: 768px) {
-              height: 140px;
-              padding: 0 20px;
+              margin-bottom: 20px;
             }
           }
 
-          &-bottom {
-            margin-top: 80px;
-            width: calc(100% / 6 * 4);
-            padding-left: 10px;
-            padding-right: 10px;
-            margin-left: -110px;
-            margin-right: -110px;
-
-            @media (max-width: 768px) {
-              width: 100%;
-              margin: 40px 0 0;
-              padding: 0;
-            }
-
-            &-text {
-              font-size: 30px;
-              line-height: 140%;
-
-              @media (max-width: 768px) {
-                font-size: 18px;
-                padding: 0 20px;
-              }
-            }
-          }
-
-          &-list {
-            margin: 40px 0 80px 102px;
+          img {
+            margin: 80px auto;
+            max-width: 100%;
 
             @media (max-width: 768px) {
               margin: 40px 0;
-              padding: 0 18px 0 30px;
+            }
+          }
+
+          h2,
+          h3,
+          h4 {
+            max-width: 790px;
+            font-size: 30px;
+            line-height: 140%;
+            margin-bottom: 40px;
+            margin-left: auto;
+            margin-right: auto;
+
+            @media (max-width: 768px) {
+              font-size: 18px;
+            }
+          }
+
+          p {
+            max-width: 790px;
+            font-size: 18px;
+            line-height: 160%;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            @media (max-width: 768px) {
+              font-size: 14px;
+              margin-bottom: 10px;
+            }
+
+          }
+
+          ol {
+            max-width: 790px;
+            margin-bottom: 80px;
+            margin-top: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 100px;
+            list-style-type: decimal;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            @media (max-width: 768px) {
+              margin-bottom: 60px;
+              padding-left: 20px;
             }
 
             li {
               position: relative;
-              margin-bottom: 40px;
+              padding-left: 80px;
               font-size: 16px;
               line-height: 160%;
-              padding-left: 102px;
+              margin-bottom: 20px;
+
+              @media (max-width: 768px) {
+                padding-left: 20px;
+                font-size: 14px;
+              }
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+            }
+          }
+
+          ul {
+            max-width: 790px;
+            margin-bottom: 80px;
+            margin-top: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 80px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            @media (max-width: 768px) {
+              margin-bottom: 60px;
+              padding-left: 0;
+            }
+
+            li {
+              position: relative;
+              padding-left: 100px;
+              font-size: 16px;
+              line-height: 160%;
+              margin-bottom: 20px;
 
               @media (max-width: 768px) {
                 font-size: 14px;
                 padding-left: 40px;
               }
 
-              span {
-                position: absolute;
-                left: 0;
-                top: 0;
-              }
-
               &:last-child {
                 margin-bottom: 0;
+              }
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: 8px;
+                left: 6px;
+                display: block;
+                width: 3px;
+                height: 3px;
+                background: $color-1;
+                border-radius: 50%;
+                text-align: center;
               }
             }
           }
 
           &-links {
             padding-top: 80px;
+            max-width: 790px;
+            margin-left: auto;
+            margin-right: auto;
             border-top: 1px solid $color-1;
             display: flex;
 
             @media (max-width: 768px) {
               padding-top: 40px;
-              margin: 0 30px;
+              margin: 0;
               flex-direction: column;
             }
 
@@ -754,8 +805,8 @@ $practices-header-bg-color: #9ac9d8;
               padding-right: 10px;
               margin-left: -10px;
               margin-right: -10px;
-              display: flex;
-              flex-direction: column;
+              // display: flex;
+              // flex-direction: column;
 
               @media (max-width: 768px) {
                 width: 100%;

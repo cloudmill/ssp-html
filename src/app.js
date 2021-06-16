@@ -13,7 +13,6 @@ $(() => {
   require("Scripts/feedback-form");
   require("Scripts/sliders");
   require("Scripts/convert-svg");
-  require("Scripts/scroll");
   require("Scripts/marquee");
   require("Scripts/events");
   require("Scripts/contacts");
@@ -24,13 +23,13 @@ $(() => {
   require("Scripts/modal");
   require("Scripts/gMapsAPI");
   require("Scripts/backend");
+  require("Scripts/scroll");
 
   if (isTouchDevice()) {
     document.body.classList.add('touch-device');
   }
 
-
-const practicesHeaderImg = document.querySelector('.practices__header-img img');
+  const practicesHeaderImg = document.querySelector('.practices__header-img img');
 
   const loader = $(".loader"),
     header = $('.header'),
@@ -46,7 +45,7 @@ const practicesHeaderImg = document.querySelector('.practices__header-img img');
   }
 
   if (!loader.hasClass("hidden")) {
-    const loaderDuration = 1500;
+    const loaderDuration = 500;
 
     circle.css("strokeDasharray", `${circumference} ${circumference}`);
     circle.css("strokeDashoffset", circumference);

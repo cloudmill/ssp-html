@@ -1,0 +1,18 @@
+extends ../layouts/master.pug
+
+block content
+  main.main.container-fluid.px-0(data-scroll-container)
+
+
+    .error-404(data-header-parent data-scroll-section)
+      include ../partials/_header.pug
+
+      .row
+        .col-lg-4
+          .error-404__title Страница не найдена.
+          +moreBtn('#', 'Главная')
+        .col-lg-4
+          .error-404__number 404
+
+    .footer__wrap(data-scroll-section)
+      include ../partials/_footer.pug
