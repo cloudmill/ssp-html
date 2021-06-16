@@ -93,10 +93,10 @@ const initScroll = () => {
 //   setTimeout(() => scroll.update(), 1500);
 // }
 
-setTimeout(initScroll, 500);
+setTimeout(initScroll, 1500);
 setTimeout(() => {
   if (scroll) scroll.update();
-}, 1500);
+}, 3000);
 
 document.body.onload = () => {
   if (scroll) scroll.update();

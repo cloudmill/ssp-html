@@ -45,7 +45,7 @@ $(() => {
   }
 
   if (!loader.hasClass("hidden")) {
-    const loaderDuration = 500;
+    const loaderDuration = 1500;
 
     circle.css("strokeDasharray", `${circumference} ${circumference}`);
     circle.css("strokeDashoffset", circumference);
