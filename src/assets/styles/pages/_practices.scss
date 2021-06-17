@@ -303,15 +303,16 @@ $practices-header-bg-color: #9ac9d8;
       }
 
       @media (max-width: 768px) {
-        padding: 100px 55px 0;
+        padding: 100px 25px 0;
       }
     }
 
     &-title {
       font-size: 90px;
-      line-height: 100%;
+      // line-height: 100%;
       text-align: center;
       max-width: 760px;
+      // padding-bottom: 50px;
       margin: 0 auto;
       font-family: $additional-font-family;
       color: $color-7;
@@ -320,7 +321,10 @@ $practices-header-bg-color: #9ac9d8;
 
       &-span {
         display: block;
+        margin-bottom: 20px;
         visibility: hidden;
+
+        line-height: 100%;
 
         &.is-inview {
           visibility: visible;
@@ -339,7 +343,8 @@ $practices-header-bg-color: #9ac9d8;
       left: 40px;
       bottom: 30px;
       font-size: 100px;
-      line-height: 90%;
+      line-height: 100%;
+      // line-height: normal;
       font-family: $additional-font-family;
       color: $color-7;
 

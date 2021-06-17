@@ -37,6 +37,7 @@ if ($(".main.practices").width()) {
       $(e.delegateTarget).next(".accordion-item__content").slideDown(600);
     }
 
+    window.scroller.update();
     setTimeout(() => {
       window.scroller.update();
     }, 600);

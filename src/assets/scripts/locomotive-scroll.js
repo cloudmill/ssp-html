@@ -2579,7 +2579,7 @@ var _default$2 = /*#__PURE__*/function (_Core) {
 
         var targetElBCR = targetEl.getBoundingClientRect();
 
-        if (section === null) {
+        if (section === null || !section) {
           top = targetElBCR.top + _this6.instance.scroll.y - getTranslate(targetEl).y;
           left = targetElBCR.left + _this6.instance.scroll.x - getTranslate(targetEl).x;
         } else {
