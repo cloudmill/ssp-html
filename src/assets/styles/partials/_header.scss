@@ -407,12 +407,10 @@
 
     &__content {
       .header__logo {
-        a {
-          .logo__img {
-            path:nth-child(1),
-            path:nth-child(2) {
-              fill: $color-7;
-            }
+        .logo__img {
+          path:nth-child(1),
+          path:nth-child(2) {
+            fill: $color-7;
           }
         }
       }
@@ -443,12 +441,10 @@
 
       .header__content {
         .header__logo {
-          a {
-            .logo__img {
-              path:nth-child(1),
-              path:nth-child(2) {
-                fill: $color-1;
-              }
+          .logo__img {
+            path:nth-child(1),
+            path:nth-child(2) {
+              fill: $color-1;
             }
           }
         }

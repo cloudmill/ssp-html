@@ -1,4 +1,5 @@
 import Swiper from "swiper/swiper-bundle.min";
+import CommandSlider from "./command-slider";
 
 // const circles = $(".bullet-progress__circle"),
 //   radius = +$(circles[0]).attr("r"),
@@ -110,22 +111,24 @@ const practicesSlider = new Swiper(".practices__slider", {
   }
 });
 
-const commandSlider = new Swiper(".command__slider", {
-  loop: true,
-  // loopedSlides: 3,
-  initialSlide: 0,
-  effect: "fade",
-  fadeEffect: {
-    crossFade: false
-  },
-  speed: 1,
-  simulateTouch: false,
+const commandSlider = new CommandSlider(".command__slider");
 
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+// const commandSlider = new Swiper(".command__slider", {
+//   loop: true,
+//   // loopedSlides: 3,
+//   initialSlide: 0,
+//   effect: "fade",
+//   fadeEffect: {
+//     crossFade: false
+//   },
+//   speed: 1,
+//   simulateTouch: false,
+
+//   navigation: {
+//     nextEl: ".swiper-button-next",
+//     prevEl: ".swiper-button-prev",
+//   },
+// });
 
 let isAnimationDisable = true;
 let isFirstLoad = true;

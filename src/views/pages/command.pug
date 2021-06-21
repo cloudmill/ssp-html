@@ -194,12 +194,12 @@ block content
               img.svg(src="assets/images/command/S.svg")
               img.svg(src="assets/images/command/S.svg")
               img.svg(src="assets/images/command/P.svg")
-      .row
+      .row.command__slider-row
         .col-8
-          .command__slider.swiper-container.fadeInUp(data-scroll)
-            .command__slider-wrapper.swiper-wrapper
+          .command__slider.fadeInUp(data-scroll)
+            .command__slider-wrapper
               each slide in command
-                .command__slider-slide.swiper-slide
+                .command__slider-slide
                   .row
                     .col-6.col-sm-3.order-1
                       .command__slider-slide-img
@@ -224,11 +224,11 @@ block content
                           each category in slide.categories
                             +tabBtn("#", category.category, "disabled")
                     .col-2.col-sm-5.col-xxl-2.d-flex.justify-content-end.order-2.order-xxl-3(style="position: relative;")
-                      .command__slider-button-prev.swiper-button-prev
+                      .command__slider-button-prev(data-command-slider-arrow="prev")
                         .button-active
                           img.svg(src="assets/images/icons/slider-arrow-small-left.svg", alt="prev")
                         img.svg(src="assets/images/icons/slider-arrow-left.svg", alt="prev")
-                      .command__slider-button-next.swiper-button-next
+                      .command__slider-button-next(data-command-slider-arrow="next")
                         .button-active
                           img.svg(src="assets/images/icons/slider-arrow-small.svg", alt="next")
                         img.svg(src="assets/images/icons/slider-arrow.svg", alt="next")
