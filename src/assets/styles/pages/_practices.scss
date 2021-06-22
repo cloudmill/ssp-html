@@ -642,6 +642,12 @@ $practices-header-bg-color: #9ac9d8;
           // flex-direction: column;
           // align-items: center;
 
+          &-wrap {
+            @include transition;
+            // height: 0;
+            overflow: hidden;
+          }
+
           @media (max-width: 768px) {
             padding: 0 30px 40px;
           }

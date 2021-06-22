@@ -20,7 +20,8 @@ if ($(".main.practices").width()) {
   $(".accordion-item").each(function (index, element) {
     if (!$(element).hasClass("active")) {
       $(element).removeClass("active");
-      $(element).find(".accordion-item__content").slideUp(600);
+      // $(element).find(".accordion-item__content").slideUp(600);
+      $(element).find(".accordion-item__content-wrap").css('height', 0);
     }
   });
 
@@ -28,13 +29,18 @@ if ($(".main.practices").width()) {
     const parent = $(e.delegateTarget).parent();
 
     if (parent.hasClass("active")) {
-      $(e.delegateTarget).next(".accordion-item__content").slideUp(600);
+      // $(e.delegateTarget).next(".accordion-item__content").slideUp(600);
+      $(e.delegateTarget).next(".accordion-item__content-wrap").css('height', 0);
       parent.removeClass("active");
     } else {
       $(".accordion-item").removeClass("active");
-      $(".accordion-item").find(".accordion-item__content").slideUp(600);
+      // $(".accordion-item").find(".accordion-item__content").slideUp(600);
+      $(".accordion-item").find(".accordion-item__content-wrap").css('height', 0);
       parent.addClass("active");
-      $(e.delegateTarget).next(".accordion-item__content").slideDown(600);
+      // $(e.delegateTarget).next(".accordion-item__content").slideDown(600);
+      $(e.delegateTarget).next(".accordion-item__content-wrap").css('height',
+        $(e.delegateTarget).next(".accordion-item__content-wrap")[0].scrollHeight);
+      // console.log()
     }
 
     window.scroller.update();
