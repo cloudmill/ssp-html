@@ -202,6 +202,13 @@
 
         @media (max-width: 768px) {
           height: 276px;
+
+          img {
+            width: auto;
+            height: auto;
+            max-height: 100%;
+            max-width: 100%;
+          }
         }
       }
 
@@ -480,7 +487,8 @@
         }
 
         @media (max-width: 576px) {
-          transform: translateX(95%);
+          // transform: translateX(95%);
+          margin-right: -147px;
         }
       }
     }
