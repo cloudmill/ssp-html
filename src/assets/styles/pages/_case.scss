@@ -114,6 +114,18 @@
         }
       }
     }
+
+    &-tab {
+      margin-right: 10px;
+      margin-bottom: 5px;
+    }
+
+    &-tabs {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   }
 
   &__title {

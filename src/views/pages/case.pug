@@ -87,7 +87,13 @@ block content
           .case__head
             h1.case__title
               span.case__title-span(data-scroll) Защита интересов Европейского Университета
-            +tabBtn("#", "споры с государственными органами", "disabled")(class="fadeIn", data-scroll)
+            ul.case__head-tabs
+              li.case__head-tab
+                +tabBtn("#", "споры с государственными органами", "disabled")(class="fadeIn", data-scroll)
+              li.case__head-tab
+                +tabBtn("#", "споры с государственными органами", "disabled")(class="fadeIn", data-scroll)
+              li.case__head-tab
+                +tabBtn("#", "споры с государственными органами", "disabled")(class="fadeIn", data-scroll)
             .case__head-img
               span
                 img(src="assets/images/cases/university.png", alt="Европейский университет в Санкт-Петербурге")
