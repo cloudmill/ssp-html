@@ -221,17 +221,41 @@ $fullpage-slide-bg-imgs: (
         height: 220px;
         width: fit-content;
         bottom: unset;
-        left: 40px;
-        top: calc(50% - 220px / 2);
+        // left: 40px;
+        // top: calc(50% - 220px / 2);
+        // top: 35%;
+        position: relative;
+
+        &-wrap {
+          position: absolute;
+          z-index: 10;
+          left: 40px;
+          top: 35%;
+          height: 220px;
+          display: flex;
+          align-items: center;
+        }
 
         @media (max-width: 1200px) {
-          top: 162px;
-          left: 20px;
+          // top: 162px;
+          // top: 120px;
+          // left: 20px;
+
+          &-wrap {
+            top: 130px;
+            left: 20px;
+          }
         }
 
         @media (max-width: 768px) {
           transform: scale(0.7);
-          left: -45px;
+          // left: -45px;
+
+          &-wrap {
+            top: 69px;
+            left: -45px;
+            height: calc(100% - 270px);
+          }
         }
 
         .fulpage__slider-bullet {

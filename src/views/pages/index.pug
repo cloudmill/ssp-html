@@ -40,14 +40,15 @@ block content
             .fullpage__slider-description
               p Наша философия — каждый клиент это партнер. Именно такое отношение позволяет эффективно взаимодействовать, отметая формализм и барьеры в коммуникации.
               +moreBtn('/about-company', "Больше о нас")
-        .fulpage__slider-pagination.swiper-pagination
+        .fulpage__slider-pagination-wrap
+          .fulpage__slider-pagination.swiper-pagination
       .fullpage-block__content
-        h1.fullpage-block__title(data-scroll)
-          p.first-line
-            span.small-text Сила Стабильного Партнерства
-            span.line
-            span.big-text Наш основной принцип деятельности
-          span.big-text заложен в самом названии
+        //- h1.fullpage-block__title(data-scroll)
+        //-   p.first-line
+        //-     span.small-text Сила Стабильного Партнерства
+        //-     span.line
+        //-     span.big-text Наш основной принцип деятельности
+        //-   span.big-text заложен в самом названии
         .fullpage-block__contacts.d-none.d-xl-flex.fadeInUp(data-scroll)
           a(href="tel:+7 812 901–02–01").phone.link 8 812 901–02–01
           a(href="mailto:site@ssp-consult.ru").email.link site@ssp-consult.ru
@@ -55,17 +56,17 @@ block content
     .practices-block(data-scroll-section)
       .practices__slider.swiper-container(data-scroll)
         .practices__slider-wrapper.swiper-wrapper
-          .practices__slider-slide.practices__slider-slide-1.swiper-slide
+          a.practices__slider-slide.practices__slider-slide-1.swiper-slide(href="practices")
             p.slide__subtitle Ведущие практики
             p.slide__title
               span 01
               | Банкротство #[br] и&nbsp;корпоративные конфликты
-          .practices__slider-slide.practices__slider-slide-2.swiper-slide
+          a.practices__slider-slide.practices__slider-slide-2.swiper-slide(href="practices")
             p.slide__subtitle Ведущие практики
             p.slide__title
               span 02
               | Трудовое и административное право
-          .practices__slider-slide.practices__slider-slide-3.swiper-slide
+          a.practices__slider-slide.practices__slider-slide-3.swiper-slide(href="practices")
             p.slide__subtitle Ведущие практики
             p.slide__title
               span 03

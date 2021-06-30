@@ -62,32 +62,54 @@
 
       &-1 {
         margin-bottom: 20px;
+        transform: translateX(-112px);
 
         @media (max-width: 768px) {
+          transform: translateX(-46px);
           margin-bottom: 10px;
         }
       }
 
       &-2 {
-        transform: translateX(-90px);
 
         @media (max-width: 768px) {
-          transform: translateX(-30px);
+          // transform: translateX(-30px);
         }
       }
     }
 
     &-item {
-      width: fit-content;
-      max-width: 240px;
-      height: auto;
-      max-height: 116px;
-      margin-right: 20px;
+      // width: fit-content;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 240px;
+      // height: auto;
+      height: 116px;
+      // margin-right: 20px;
+      margin-left: -10px;
+
+      &-img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 140px;
+        max-height: 49px;
+      }
 
       @media (max-width: 768px) {
-        max-width: 124px;
-        max-height: 60px;
-        margin-right: 10px;
+        // max-width: 124px;
+        // max-height: 60px;
+        width: 93px;
+        height: 45px;
+        // margin-right: 10px;
+        margin-left: -4px;
+
+        &-img {
+          max-width: 55px;
+          max-height: 19px;
+        }
       }
 
       .recognition-1 {
