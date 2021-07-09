@@ -14,6 +14,15 @@ $last-case-bg-img: url("../../assets/images/cases/last-case-bg.png");
     @media (max-width: 768px) {
       margin: 0 auto 40px;
     }
+
+    .plus-btn {
+      display: block;
+      margin: 75px auto 0;
+
+      @media (max-width: 1200px) {
+        margin-top: 30px;
+      }
+    }
   }
 
   &__filter {

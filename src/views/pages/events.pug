@@ -91,13 +91,14 @@ block content
               ul.events__items
                 each event in events
                   +newsItem(event.date, event.title, event.moreUrl, event.tabs)(class="fadeInUp" data-scroll)
-          .subscribe
-            p.subscribe-title.active Подписаться на ССП–Консалт
-            .subscribe-email
-              input(type="email" name="email" placeholder="E-mail*")
-            +agreeCheckbox("subscribe-agree-mob")
-            .subscribe-btn.active
-              +moreBtn("#", "Подписаться")
+          button.plus-btn.fadeInUp(data-scroll) Показать еще
+          //- .subscribe
+          //-   p.subscribe-title.active Подписаться на ССП–Консалт
+          //-   .subscribe-email
+          //-     input(type="email" name="email" placeholder="E-mail*")
+          //-   +agreeCheckbox("subscribe-agree-mob")
+          //-   .subscribe-btn.active
+          //-     +moreBtn("#", "Подписаться")
 
     +seeNext("contacts", "Контакты")
 
