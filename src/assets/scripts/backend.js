@@ -1,5 +1,6 @@
 import "parsleyjs";
 import mask from "inputmask";
+import { ajaxPrefilter } from "jquery";
 
 $(function () {
   events();
@@ -14,21 +15,31 @@ function showMore() {
   $(document).on("click", "[data-type=show_more_click]", function (e) {
     console.log("show more");
 
-    let count = $(this).attr("data-count"),
-      tags = $(this).attr("data-tags"),
-      casesList = $("[data-type=js-cases-list]");
+    let thisObj = $(this),
+      url = thisObj.attr("data-url"),
+      tags = thisObj.attr("data-tags"),
+      container = thisObj.parents("[data-type=js-cases-list]"),
+      itemsContainer = container.find("[data-type=items-container]");
 
-    $.ajax({
-      method: "POST",
-      url: window.location.href,
-      data: {
-        ajax: 1,
-        count: count,
-        tags: tags,
-      },
-    }).done(function (a) {
-      casesList.html(a);
-    });
+    if (url) {
+      thisObj.remove();
+
+      $.ajax({
+        method: "POST",
+        url: url,
+        data: {
+          ajax: 1,
+          tags: tags,
+        },
+      }).done(function (r) {
+        let itmesResponse = $(r).find("[data-type=item]"),
+          responsePageNav = $(r).find("[data-type=show_more_click]");
+        itemsContainer.append(itmesResponse);
+        if (responsePageNav) {
+          itemsContainer.after(responsePageNav);
+        }
+      });
+    }
   });
 }
 
