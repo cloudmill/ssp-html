@@ -1,14 +1,13 @@
 import "parsleyjs";
 import mask from "inputmask";
 
-$(function() {
+$(function () {
   events();
   cases();
   validates();
   masks();
   submitForm();
 });
-
 
 function events() {
   console.log("events");
@@ -117,38 +116,39 @@ function masks() {
 }
 
 function submitForm() {
-  $('[data-type=feedback-form]').submit(function (e) {
+  $("[data-type=feedback-form]").submit(function (e) {
     e.preventDefault();
 
     let form = $(this),
       data = {},
-      formType = form.attr('data-title-type'),
-      namePractic = form.attr('data-name-practic');
+      formType = form.attr("data-title-type"),
+      namePractic = form.attr("data-name-practic");
 
     if (formType) {
-      data['UF_TYPE'] = formType;
-    };
-
-    if (namePractic) {
-      data['UF_PRACTIC'] = namePractic;
+      data["UF_TYPE"] = formType;
     }
 
-    form.find('input, textarea').each(function () {
-      data[$(this).attr('data-uf')] = $(this).val();
+    if (namePractic) {
+      data["UF_PRACTIC"] = namePractic;
+    }
+
+    form.find("input, textarea").each(function () {
+      data[$(this).attr("data-uf")] = $(this).val();
     });
 
     if (data) {
       $.ajax({
-        type: 'POST',
-        url: '/local/templates/main/include/ajax/feedback_form.php',
-        dataType: 'json',
+        type: "POST",
+        url: "/local/templates/main/include/ajax/feedback_form.php",
+        dataType: "json",
         data: data,
-        success: function(data) {
+        success: function (data) {
           console.log(data);
-          // obj.hide().siblings('[data-type=success-message]');
-        }
+          form.hide();
+          $("[data-type=success-message]").toggleClass("active");
+          $("[data-type=success-message-title]").toggleClass("active");
+        },
       });
     }
   });
 }
-
