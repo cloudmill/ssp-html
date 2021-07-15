@@ -7,7 +7,30 @@ $(function () {
   validates();
   masks();
   submitForm();
+  showMore();
 });
+
+function showMore() {
+  $("[data-type=show_more_click]").on("click", function (e) {
+    console.log("show more");
+
+    let count = $(this).attr("data-count"),
+      tags = $(this).attr("data-tags"),
+      casesList = $("[data-type=js-cases-list]");
+
+    $.ajax({
+      method: "POST",
+      url: window.location.href,
+      data: {
+        ajax: 1,
+        count: count,
+        tags: tags,
+      },
+    }).done(function (a) {
+      casesList.html(a);
+    });
+  });
+}
 
 function events() {
   console.log("events");
@@ -76,7 +99,8 @@ function cases() {
 
   function ajaxCasesList() {
     let tags = [],
-      casesList = $("[data-type=js-cases-list]");
+      casesList = $("[data-type=js-cases-list]"),
+      count = $("[data-type=show_more_click]").attr("data-count");
 
     $("[data-type=js-case-filter-tag]").each(function () {
       if ($(this).hasClass("active")) {
@@ -90,6 +114,7 @@ function cases() {
       data: {
         ajax: 1,
         tags: tags,
+        count: count,
       },
     }).done(function (a) {
       casesList.html(a);
