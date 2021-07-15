@@ -33,7 +33,7 @@ function showMore() {
         },
       }).done(function (r) {
         let itemsResponse = null,
-          responsePageNav = $(r).filter("[data-type=show_more_click_cases]");
+          responsePageNav = $(r).filter("[data-type=show_more_click]");
 
         if (pathArr[1] == 'events') {
           itemsResponse = $(r);
