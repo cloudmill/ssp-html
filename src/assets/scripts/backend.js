@@ -32,12 +32,13 @@ function showMore() {
           tags: tags,
         },
       }).done(function (r) {
-        let itmesResponse = $(r).find("[data-type=item]"),
-          responsePageNav = $(r).find("[data-type=show_more_click]");
-        itemsContainer.append(itmesResponse);
+        let itemsResponse = $(r).find("[data-type=item]"),
+          responsePageNav = $(r).filter("[data-type=show_more_click]");
+        itemsContainer.append(itemsResponse);
         if (responsePageNav) {
           itemsContainer.after(responsePageNav);
         }
+        console.log(itemsResponse);
         console.log(responsePageNav);
       });
     }
