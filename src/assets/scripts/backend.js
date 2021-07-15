@@ -38,6 +38,7 @@ function showMore() {
         if (responsePageNav) {
           itemsContainer.after(responsePageNav);
         }
+        console.log(responsePageNav);
       });
     }
   });
