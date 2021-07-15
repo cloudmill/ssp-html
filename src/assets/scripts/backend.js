@@ -13,13 +13,13 @@ $(function () {
 
 function showMore() {
   $(document).on("click", "[data-type=show_more_click]", function (e) {
-    console.log("show more cases");
-
     let thisObj = $(this),
+      path = window.location.pathname,
+      pathArr = path.split('/'),
       url = thisObj.attr("data-url"),
       tags = thisObj.attr("data-tags"),
-      container = thisObj.parents("[data-type=js-cases-list]"),
-      itemsContainer = container.find("[data-type=items-container]");
+      container = thisObj.parents("[data-type-container=main-items-container]"),
+      itemsContainer = container.find("[data-container=items]");
 
     if (url) {
       thisObj.remove();
@@ -32,10 +32,17 @@ function showMore() {
           tags: tags,
         },
       }).done(function (r) {
-        let itemsResponse = $(r).find("[data-type=item]"),
+        let itemsResponse = null,
           responsePageNav = $(r).filter("[data-type=show_more_click_cases]");
+
+        if (pathArr[1] == 'events') {
+          itemsResponse = $(r);
+        } else {
+          itemsResponse = $(r).find('[data-type=item]');
+        }
+
         itemsContainer.append(itemsResponse);
-        if (responsePageNav) {
+        if (pathArr[1] == 'cases') {
           itemsContainer.after(responsePageNav);
         }
       });
