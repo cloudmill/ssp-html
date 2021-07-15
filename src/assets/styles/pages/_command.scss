@@ -69,9 +69,11 @@
         bottom: -240px;
       }
 
-      .svg {
+      img {
         &:first-child {
           margin-right: 225px;
+          width: 381px;
+          height: 471px;
 
           @media (max-width: 1200px) {
             margin-right: 125px;
@@ -84,10 +86,17 @@
 
         &:nth-child(2) {
           margin-right: 24px;
+          width: 381px;
+          height: 471px;
 
           @media (max-width: 768px) {
             margin-right: 6px;
           }
+        }
+
+        &:last-child {
+          width: 345px;
+          height: 471px;
         }
       }
     }
