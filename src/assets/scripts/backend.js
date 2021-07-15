@@ -13,7 +13,7 @@ $(function () {
 
 function showMore() {
   $(document).on("click", "[data-type=show_more_click]", function (e) {
-    console.log("show more");
+    console.log("show more cases");
 
     let thisObj = $(this),
       url = thisObj.attr("data-url"),
@@ -33,20 +33,16 @@ function showMore() {
         },
       }).done(function (r) {
         let itemsResponse = $(r).find("[data-type=item]"),
-          itemFirstResponse = $(r).find("[data-type=item-first]"),
-          responsePageNav = $(r).filter("[data-type=show_more_click]");
+          responsePageNav = $(r).filter("[data-type=show_more_click_cases]");
         itemsContainer.append(itemsResponse);
-        itemsContainer.after(itemFirstResponse);
         if (responsePageNav) {
           itemsContainer.after(responsePageNav);
         }
-        console.log(itemFirstResponse);
-        console.log(itemsResponse);
-        console.log(responsePageNav);
       });
     }
   });
 }
+
 
 function events() {
   console.log("events");
@@ -115,8 +111,7 @@ function cases() {
 
   function ajaxCasesList() {
     let tags = [],
-      casesList = $("[data-type=js-cases-list]"),
-      count = $("[data-type=show_more_click]").attr("data-count");
+      casesList = $("[data-type=js-cases-list]");
 
     $("[data-type=js-case-filter-tag]").each(function () {
       if ($(this).hasClass("active")) {
@@ -130,7 +125,6 @@ function cases() {
       data: {
         ajax: 1,
         tags: tags,
-        count: count,
       },
     }).done(function (a) {
       casesList.html(a);
