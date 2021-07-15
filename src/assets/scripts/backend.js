@@ -19,7 +19,8 @@ function showMore() {
       url = thisObj.attr("data-url"),
       tags = thisObj.attr("data-tags"),
       container = thisObj.parents("[data-type=js-cases-list]"),
-      itemsContainer = container.find("[data-type=items-container]");
+      itemsContainer = container.find("[data-type=items-container]"),
+      page = 1;
 
     if (url) {
       thisObj.remove();
@@ -30,6 +31,7 @@ function showMore() {
         data: {
           ajax: 1,
           tags: tags,
+          page: page,
         },
       }).done(function (r) {
         let itemsResponse = $(r).find("[data-type=item]"),
