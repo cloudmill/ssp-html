@@ -11,7 +11,7 @@ $(function () {
 });
 
 function showMore() {
-  $("[data-type=show_more_click]").on("click", function (e) {
+  $(document).on("click", "[data-type=show_more_click]", function (e) {
     console.log("show more");
 
     let count = $(this).attr("data-count"),
