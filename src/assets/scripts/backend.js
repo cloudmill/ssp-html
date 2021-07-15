@@ -19,8 +19,7 @@ function showMore() {
       url = thisObj.attr("data-url"),
       tags = thisObj.attr("data-tags"),
       container = thisObj.parents("[data-type=js-cases-list]"),
-      itemsContainer = container.find("[data-type=items-container]"),
-      page = 1;
+      itemsContainer = container.find("[data-type=items-container]");
 
     if (url) {
       thisObj.remove();
@@ -31,15 +30,17 @@ function showMore() {
         data: {
           ajax: 1,
           tags: tags,
-          page: page,
         },
       }).done(function (r) {
         let itemsResponse = $(r).find("[data-type=item]"),
+          itemFirstResponse = $(r).find("[data-type=item-first]"),
           responsePageNav = $(r).filter("[data-type=show_more_click]");
         itemsContainer.append(itemsResponse);
+        itemsContainer.after(itemFirstResponse);
         if (responsePageNav) {
           itemsContainer.after(responsePageNav);
         }
+        console.log(itemFirstResponse);
         console.log(itemsResponse);
         console.log(responsePageNav);
       });
