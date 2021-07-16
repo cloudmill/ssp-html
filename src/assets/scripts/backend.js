@@ -21,6 +21,10 @@ function showMore() {
       container = thisObj.parents("[data-type-container=main-items-container]"),
       itemsContainer = container.find("[data-container=items]");
 
+      if (tags) {
+        tags = JSON.parse(tags);
+      }
+
     if (url) {
       thisObj.remove();
 
