@@ -31,10 +31,10 @@ if ($(".main.events").width() || $(".main.event").width()) {
         error = true;
       }
 
-      if (!$(email).val()) {
+      /*if (!$(email).val()) {
         $(emailError).addClass("active");
         error = true;
-      }
+      }*/
 
       if (!error) {
         $(subscribeAgree).prop("checked", "");
@@ -43,7 +43,7 @@ if ($(".main.events").width() || $(".main.event").width()) {
         $(eventsSubscribe).addClass("subscribed");
         $(subscribeTitle).toggleClass("active");
         $(".subscribe-btn").toggleClass("active");
-        $(email).val("");
+        //$(email).val("");
       }
     }
   });

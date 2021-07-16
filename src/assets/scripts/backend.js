@@ -9,21 +9,52 @@ $(function () {
   masks();
   submitForm();
   showMore();
+  subscribe();
 });
+
+function subscribe() {
+  $(document).on("click", "[data-type=subscribe-click]", function (e) {
+    e.preventDefault();
+    console.log("subscribe from");
+
+    let form = $(document).find("[data-type=subscribe-form]"),
+      email = form.find("input[name=email]").val(),
+      data = {};
+
+    data["UF_EMAIL"] = email;
+
+    if (data) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/subscribe_form.php",
+        dataType: "json",
+        data: data,
+        success: function (data) {
+          console.log(data);
+          if (data == "exist") {
+            $(document).find("[data-type=after-subscribe]").text("Данный E-mail уже подписан");
+          }else{
+            $(document).find("[data-type=after-subscribe]").text("Подписка успешно оформлена");
+          }
+        },
+      });
+    }
+  });
+}
 
 function showMore() {
   $(document).on("click", "[data-type=show_more_click]", function (e) {
     let thisObj = $(this),
       path = window.location.pathname,
-      pathArr = path.split('/'),
+      pathArr = path.split("/"),
       url = thisObj.attr("data-url"),
       tags = thisObj.attr("data-tags"),
       container = thisObj.parents("[data-type-container=main-items-container]"),
       itemsContainer = container.find("[data-container=items]");
 
-      if (tags) {
-        tags = JSON.parse(tags);
-      }
+    if (tags) {
+      tags = JSON.parse(tags);
+    }
 
     if (url) {
       thisObj.remove();
@@ -39,14 +70,14 @@ function showMore() {
         let itemsResponse = null,
           responsePageNav = $(r).filter("[data-type=show_more_click]");
 
-        if (pathArr[1] == 'events') {
+        if (pathArr[1] == "events") {
           itemsResponse = $(r);
         } else {
-          itemsResponse = $(r).find('[data-type=item]');
+          itemsResponse = $(r).find("[data-type=item]");
         }
 
         itemsContainer.append(itemsResponse);
-        if (pathArr[1] == 'cases') {
+        if (pathArr[1] == "cases") {
           itemsContainer.after(responsePageNav);
         }
         window.scroller.update();
@@ -54,7 +85,6 @@ function showMore() {
     }
   });
 }
-
 
 function events() {
   console.log("events");
