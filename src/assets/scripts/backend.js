@@ -45,6 +45,7 @@ function showMore() {
         if (pathArr[1] == 'cases') {
           itemsContainer.after(responsePageNav);
         }
+        window.scroller.update();
       });
     }
   });
@@ -91,6 +92,7 @@ function events() {
       },
     }).done(function (a) {
       eventsList.html(a);
+      window.scroller.update();
     });
   }
 }
@@ -135,6 +137,7 @@ function cases() {
       },
     }).done(function (a) {
       casesList.html(a);
+      window.scroller.update();
     });
   }
 }
