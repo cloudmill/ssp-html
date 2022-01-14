@@ -41,39 +41,39 @@ export default class CommandSlider {
       }
     });
 
-    // this.$root.addEventListener('touchstart', (e) => {
-    //   // console.log(e);
+    this.$root.addEventListener('touchstart', (e) => {
+      // console.log(e);
 
-    //   this.$root.ontouchmove = (event) => {
+      this.$root.ontouchmove = (event) => {
 
 
-    //     this.$root.ontouchend = () => {
-    //       if ((e.touches[0].clientX - event.touches[0].clientX) < 0 && (e.touches[0].clientX - event.touches[0].clientX) < -75) {
-    //         if (this.$active.previousElementSibling) {
-    //           this.setActive(this.$active.previousElementSibling);
-    //         } else {
-    //           this.setActive(this.$slides[this.$slides.length - 1]);
-    //         }
+        this.$root.ontouchend = () => {
+          if ((e.touches[0].clientX - event.touches[0].clientX) < 0 && (e.touches[0].clientX - event.touches[0].clientX) < -75) {
+            if (this.$active.previousElementSibling) {
+              this.setActive(this.$active.previousElementSibling);
+            } else {
+              this.setActive(this.$slides[this.$slides.length - 1]);
+            }
 
-    //         this.$root.ontouchmove = null;
-    //         this.$root.ontouchend = null;
-    //         return;
-    //       }
+            this.$root.ontouchmove = null;
+            this.$root.ontouchend = null;
+            return;
+          }
 
-    //       if ((e.touches[0].clientX - event.touches[0].clientX) > 0 && (e.touches[0].clientX - event.touches[0].clientX) > 75) {
-    //         if (this.$active.nextElementSibling) {
-    //           this.setActive(this.$active.nextElementSibling);
-    //         } else {
-    //           this.setActive(this.$slides[0]);
-    //         }
+          if ((e.touches[0].clientX - event.touches[0].clientX) > 0 && (e.touches[0].clientX - event.touches[0].clientX) > 75) {
+            if (this.$active.nextElementSibling) {
+              this.setActive(this.$active.nextElementSibling);
+            } else {
+              this.setActive(this.$slides[0]);
+            }
 
-    //         this.$root.ontouchmove = null;
-    //         this.$root.ontouchend = null;
-    //         return;
-    //       }
-    //     };
-    //   };
-    // });
+            this.$root.ontouchmove = null;
+            this.$root.ontouchend = null;
+            return;
+          }
+        };
+      };
+    });
 
     window.addEventListener('resize', () => {
       this.setActive(this.$active);

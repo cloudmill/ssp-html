@@ -241,31 +241,28 @@ block content
       include ../partials/_footer.pug
 
   .overlay
-  //- each modal in modals
-    .modal(data-modal=`modal-${modal.number}`)
-
-      div
-        .modal__close(data-modal-close="true")
-          img.svg(src="assets/images/icons/close.svg", alt="close")
-        .modal__content
-          .modal__info
-            .modal__info-name= modal.name
-            .modal__info-text-wrap
-              .modal__info-text Руководит деятельностью компании, отвечает за стратегию развития и осуществляет руководство комплексным обслуживанием крупнейших клиентов и инвестиционных проектов.
-              .modal__info-text В 2005 окончил Санкт-Петербургский государственный университет, Юридический факультет.
-              .modal__info-text В 2018г. прошел курс повышения квалификации «Юридический Due Diligence».
-        .modal__block
-          .modal__block-title Проектный опыт
-          .modal__block-text-wrap
-            .modal__block-text АНООВО "Европейский Университет в Санкт-Петербурге", страховой спор с "Группой ИЛИМ", ЛМГТ, ЛЕНСПЕЦСМУ, ВЭБ Лизинг, Севкабель Порт
-        .modal__block
-          .modal__block-title Публикации
-          .modal__block-publications
-            .modal__block-publications-item
-              .modal__block-publications-item-date 20 декабря 2020
-              .modal__block-publications-item-name ТОП-5 рекомендаций, как избежать привлечения к субсидиарной ответственности
-              +moreBtn("#", "Подробнее")
-            .modal__block-publications-item
-              .modal__block-publications-item-date 20 декабря 2020
-              .modal__block-publications-item-name Статья для директора: за какие нарушения привлекают топ–менеджеров
-              +moreBtn("#", "Подробнее")
+  .modal(data-modal='modal-01')
+    .modal__close(data-modal-close="true")
+      img.svg(src="assets/images/icons/close.svg", alt="close")
+    .modal__content
+      .modal__info
+        .modal__info-name qqqq
+        .modal__info-text-wrap
+          .modal__info-text Руководит деятельностью компании, отвечает за стратегию развития и осуществляет руководство комплексным обслуживанием крупнейших клиентов и инвестиционных проектов.
+          .modal__info-text В 2005 окончил Санкт-Петербургский государственный университет, Юридический факультет.
+          .modal__info-text В 2018г. прошел курс повышения квалификации «Юридический Due Diligence».
+    .modal__block
+      .modal__block-title Проектный опыт
+      .modal__block-text-wrap
+        .modal__block-text АНООВО "Европейский Университет в Санкт-Петербурге", страховой спор с "Группой ИЛИМ", ЛМГТ, ЛЕНСПЕЦСМУ, ВЭБ Лизинг, Севкабель Порт
+    .modal__block
+      .modal__block-title Публикации
+      .modal__block-publications
+        .modal__block-publications-item
+          .modal__block-publications-item-date 20 декабря 2020
+          .modal__block-publications-item-name ТОП-5 рекомендаций, как избежать привлечения к субсидиарной ответственности
+          +moreBtn("#", "Подробнее")
+        .modal__block-publications-item
+          .modal__block-publications-item-date 20 декабря 2020
+          .modal__block-publications-item-name Статья для директора: за какие нарушения привлекают топ–менеджеров
+          +moreBtn("#", "Подробнее")
