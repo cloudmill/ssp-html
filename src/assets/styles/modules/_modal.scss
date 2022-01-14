@@ -16,8 +16,10 @@
   position: fixed;
   top: 0;
   left: -100%;
+  // left: 0;
+  // transform: translateX(100%);
   z-index: 16;
-  display: none;
+  // display: none;
   background: $color-7;
   max-width: 830px;
   height: 100vh;
@@ -25,6 +27,7 @@
   box-shadow: 0 0 10000px 10000px transparent;
   overflow-y: auto;
   @include transition();
+  transition-delay: 0.2s;
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -70,8 +73,9 @@
   }
 
   &.active {
-    display: block;
+    // display: block;
     left: 0;
+    // transform: translateX(0);
     box-shadow: 0 0 1000px 1000px rgba(23, 53, 81, 0.5);
   }
 
@@ -252,4 +256,8 @@
       }
     }
   }
+}
+
+@keyframes slideIn {
+  
 }
