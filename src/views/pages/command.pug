@@ -196,7 +196,7 @@ block content
               img(src="assets/images/command/P.svg")
       .row.command__slider-row
         .col-8
-          //- .command__slider
+          .command__slider
             .command__slider-wrapper
               each slide in command
                 .command__slider-slide
@@ -241,7 +241,7 @@ block content
       include ../partials/_footer.pug
 
   .overlay
-  //- each modal in modals
+  each modal in modals
     .modal(data-modal=`modal-${modal.number}`)
 
       div
