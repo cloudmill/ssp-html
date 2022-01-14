@@ -409,7 +409,7 @@ var _default = /*#__PURE__*/function () {
       if (oldContext != this.context) {
         var oldSmooth = oldContext == 'desktop' ? this.smooth : this[oldContext].smooth;
         var newSmooth = this.context == 'desktop' ? this.smooth : this[this.context].smooth;
-        if (oldSmooth != newSmooth) window.location.reload();
+        // if (oldSmooth != newSmooth) window.location.reload();
       }
     }
   }, {
