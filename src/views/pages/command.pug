@@ -241,10 +241,10 @@ block content
       include ../partials/_footer.pug
 
   .overlay
-  each modal in modals
+  //- each modal in modals
     .modal(data-modal=`modal-${modal.number}`)
 
-      div(data-scroll-section)
+      div
         .modal__close(data-modal-close="true")
           img.svg(src="assets/images/icons/close.svg", alt="close")
         .modal__content
