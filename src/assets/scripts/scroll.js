@@ -42,7 +42,7 @@ const initScroll = () => {
       if (e.scroll.y >= header.offsetHeight + offset) {
         header.classList.add('hidden');
         if (main.firstElementChild !== header) {
-          main.prepend(header);
+          // main.prepend(header);
         }
       }
 
@@ -62,7 +62,7 @@ const initScroll = () => {
             header.classList.remove('scrolled');
 
             if (e.scroll.y <= 1) {
-              headerParent.prepend(header);
+              // headerParent.prepend(header);
             }
           }
         }
@@ -74,7 +74,7 @@ const initScroll = () => {
               header.classList.remove('scrolled');
             }, 0);
 
-            headerParent.prepend(header);
+            // headerParent.prepend(header);
           }
         }
       }
