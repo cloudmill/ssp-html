@@ -15,11 +15,10 @@
 .modal {
   position: fixed;
   top: 0;
-  left: -100%;
-  // left: 0;
-  // transform: translateX(100%);
+  // left: -100%;
+  left: 0;
   z-index: 16;
-  // display: none;
+  display: none;
   background: $color-7;
   max-width: 830px;
   height: 100vh;
@@ -73,9 +72,9 @@
   }
 
   &.active {
-    // display: block;
-    left: 0;
-    // transform: translateX(0);
+    display: block;
+    // left: 0;
+    animation: .6s forwards slideIn;
     box-shadow: 0 0 1000px 1000px rgba(23, 53, 81, 0.5);
   }
 
@@ -259,5 +258,10 @@
 }
 
 @keyframes slideIn {
-  
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
