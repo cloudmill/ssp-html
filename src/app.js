@@ -23,7 +23,7 @@ $(() => {
   require("Scripts/modal");
   require("Scripts/gMapsAPI");
   require("Scripts/backend");
-  // require("Scripts/scroll");
+  require("Scripts/scroll");
 
   if (isTouchDevice()) {
     document.body.classList.add('touch-device');
