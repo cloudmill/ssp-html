@@ -19,7 +19,7 @@ const scrollOptions = {
     smooth: false,
   },
   getDirection: true,
-  reloadOnContextChange: true,
+  reloadOnContextChange: false,
   resetNativeScroll: false,
   scrollbarContainer: document.querySelector('[data-scroll-container]'),
   scrollbarClass: 'c-scrollbar',
