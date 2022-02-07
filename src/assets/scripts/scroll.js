@@ -93,11 +93,16 @@ const initScroll = () => {
 //   setTimeout(() => scroll.update(), 1500);
 // }
 
-setTimeout(initScroll, 1500);
-setTimeout(() => {
-  if (scroll) scroll.update();
-}, 3000);
+const command = document.querySelector('.command')
 
-document.body.onload = () => {
-  if (scroll) scroll.update();
-};
+if (!command) {
+  setTimeout(initScroll, 1500);
+  setTimeout(() => {
+    if (scroll) scroll.update();
+  }, 3000);
+  
+  document.body.onload = () => {
+    if (scroll) scroll.update();
+  };
+}
+
