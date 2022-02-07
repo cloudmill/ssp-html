@@ -111,7 +111,7 @@ const practicesSlider = new Swiper(".practices__slider", {
   }
 });
 
-const commandSlider = new CommandSlider(".command__slider");
+// const commandSlider = new CommandSlider(".command__slider");
 
 // const commandSlider = new Swiper(".command__slider", {
 //   loop: true,
