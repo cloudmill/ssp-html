@@ -88,17 +88,17 @@ const initScroll = () => {
 //   setTimeout(() => scroll.update(), 1500);
 // }
 
-const command = document.querySelector(".command");
+// const command = document.querySelector(".command");
 
-if (!command) {
-  setTimeout(initScroll, 1500);
-  setTimeout(() => {
-    if (scroll) scroll.update();
-  }, 3000);
+// if (!command) {
+setTimeout(initScroll, 1500);
+setTimeout(() => {
+  if (scroll) scroll.update();
+}, 3000);
 
-  document.body.onload = () => {
-    if (scroll) scroll.update();
-  };
-} else {
-  document.body.style.overflow = "visible";
-}
+document.body.onload = () => {
+  if (scroll) scroll.update();
+};
+// } else {
+//   document.body.style.overflow = "visible";
+// }
