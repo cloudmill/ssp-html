@@ -10,7 +10,34 @@ $(function () {
   submitForm();
   showMore();
   subscribe();
+  modalTeam();
 });
+
+function modalTeam() {
+  $(document).on("click", "[data-type=team-modal]", function (e) {
+    console.log("modal team");
+
+    let thisObj = $(this),
+      name = thisObj.attr("data-name"),
+      project = thisObj.attr("data-project"),
+      publicBlock = thisObj.siblings("[data-type=modal-info-public]").html(),
+      descProv = thisObj.siblings("[data-type=modal-info-desc-items]").html(),
+      descBlock = thisObj.siblings("[data-type=modal-info-desc]").html();
+
+    if (name) {
+      $(document).find('[data-type=team-name]').html(name);
+    }
+    if (project) {
+      $(document).find('[data-type=team-project]').html(project);
+    }
+    if (publicBlock) {
+      $(document).find('[data-type=team-public]').html(publicBlock);
+    }
+    if (descProv) {
+      $(document).find('[data-type=team-desc]').html(descBlock);
+    }
+  });
+}
 
 function subscribe() {
   $(document).on("click", "[data-type=subscribe-click]", function (e) {
@@ -33,7 +60,7 @@ function subscribe() {
           console.log(data);
           if (data == "exist") {
             $(document).find("[data-type=after-subscribe]").text("Данный E-mail уже подписан");
-          }else{
+          } else {
             $(document).find("[data-type=after-subscribe]").text("Подписка успешно оформлена");
           }
         },
