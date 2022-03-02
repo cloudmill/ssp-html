@@ -18,23 +18,19 @@ function modalTeam() {
     console.log("modal team");
 
     let thisObj = $(this),
-      name = thisObj.attr("data-name"),
-      projectBlock = thisObj.siblings("[data-type=modal-info-project]").html(),
-      publicBlock = thisObj.siblings("[data-type=modal-info-public]").html(),
-      descBlock = thisObj.siblings("[data-type=modal-info-desc]").html();
+      data = {},
+      id = thisObj.attr("data-id");
 
-    if (name) {
-      $(document).find('[data-type=team-name]').html(name);
-    }
-    if (projectBlock) {
-      $(document).find('[data-type=team-project]').html(projectBlock);
-    }
-    if (publicBlock) {
-      $(document).find('[data-type=team-public]').html(publicBlock);
-    }
-    if (descBlock) {
-      $(document).find('[data-type=team-desc]').html(descBlock);
-    }
+    data["ID"] = id;
+
+    $.ajax({
+      type: "POST",
+      url: "/local/templates/main/include/ajax/team_modal.php",
+      data: data,
+      success: function (r) {
+        $(document).find('[data-type=modal-team-cart]').append(r);
+      }
+    });
   });
 }
 
