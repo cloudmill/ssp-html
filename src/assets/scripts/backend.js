@@ -19,21 +19,20 @@ function modalTeam() {
 
     let thisObj = $(this),
       name = thisObj.attr("data-name"),
-      project = thisObj.attr("data-project"),
+      projectBlock = thisObj.siblings("[data-type=modal-info-project]").html(),
       publicBlock = thisObj.siblings("[data-type=modal-info-public]").html(),
-      descProv = thisObj.siblings("[data-type=modal-info-desc-items]").html(),
       descBlock = thisObj.siblings("[data-type=modal-info-desc]").html();
 
     if (name) {
       $(document).find('[data-type=team-name]').html(name);
     }
-    if (project) {
-      $(document).find('[data-type=team-project]').html(project);
+    if (projectBlock) {
+      $(document).find('[data-type=team-project]').html(projectBlock);
     }
     if (publicBlock) {
       $(document).find('[data-type=team-public]').html(publicBlock);
     }
-    if (descProv) {
+    if (descBlock) {
       $(document).find('[data-type=team-desc]').html(descBlock);
     }
   });
