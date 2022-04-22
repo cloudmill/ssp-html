@@ -26,6 +26,12 @@ const scrollOptions = {
   scrollingClass: "has-scroll-scrolling",
 };
 
+const SCROLL_MODE = {
+  STARTED: 0,
+  STOPED: 1,
+};
+let scrollMode = SCROLL_MODE.STOPED;
+
 const initScroll = () => {
   scroll = new LocomotiveScroll(scrollOptions);
 
@@ -79,6 +85,34 @@ const initScroll = () => {
     }
   });
 };
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    const sony = document.querySelector(".sony");
+
+    sony.classList.remove("sony--hide");
+
+    scrollMode = SCROLL_MODE.STOPED;
+    scroll.stop();
+
+    const layout = sony.querySelector(".sony__layout");
+    const close = sony.querySelector(".sony__close .btn-close");
+
+    layout.addEventListener("click", (e) => {
+      if (!e.target.closest(".sony__modal")) {
+        sony.classList.add("sony--hide");
+        scrollMode = SCROLL_MODE.STARTED;
+        scroll.start();
+      }
+    });
+
+    close.addEventListener("click", () => {
+      sony.classList.add("sony--hide");
+      scrollMode = SCROLL_MODE.STARTED;
+      scroll.start();
+    });
+  }, 3000);
+});
 
 // if (loader) {
 //   setTimeout(initScroll, 1500);

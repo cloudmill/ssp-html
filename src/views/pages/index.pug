@@ -6,6 +6,19 @@ extends ../layouts/master.pug
 //-   include ../partials/_loader.pug
 
 block content
+  .sony.sony--hide
+    .sony__bg
+    .sony__layout
+      .sony__modal
+        .sony__text
+          |21 апреля 2022 Сергей Панфиленко направил в суд иск к #[a.sony__text-highlight(href="#") Sony Interactive Entertainment Europe Limited] на 10 млн. рублей с требованием предоставления доступа к системе PlayStation Store, возможности приобретения программного обеспечения и его использования, возмещения причиненного морального вреда, а так же судебную неустойку в случае неисполнения решения суда.
+        .sony__text.sony__text--large
+          |ССП-Консалт Организован сбор заявителей для подачи коллективного иска к #[a.sony__text-highlight(href="#") Sony Playstation]
+        .sony__bottom
+          +moreBtn('/about-company', "Подробнее")
+        .sony__close
+          .btn-close
+            img.svg(src="assets/images/icons/close.svg", alt="close")
   main#main.index-main(data-scroll-container)
 
     .fullpage-block(data-scroll-section data-header-parent)
