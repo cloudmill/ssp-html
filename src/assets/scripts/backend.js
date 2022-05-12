@@ -28,6 +28,7 @@ function modalTeam() {
       url: "/local/templates/main/include/ajax/team_modal.php",
       data: data,
       success: function (r) {
+        $(document).find('[data-type=modal-team-cart]').empty();
         $(document).find('[data-type=modal-team-cart]').append(r);
       }
     });
